@@ -5,20 +5,20 @@ import SignUp from './Components/SignUp';
 import SignUpForm from "./Components/SignUpForm.js"
 import LogIn from './Components/LogIn';
 import Template from './Components/Template';
-import TherapistDashboard from './Components/TherapistDashboard.js';
-import PatientJournalListing from './Components/PatientJournalListing';
+//import TherapistDashboard from './Components/TherapistDashboard.js';
+//import PatientJournalListing from './Components/PatientJournalListing';
 
 function App() {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       {/* <TherapistDashboard /> */}
-      <PatientJournalListing />
-      {/* <SignUp />
-      <LogIn />
-       <SignUpForm />
-       <Template /> */}
-       <Footer />
+      {/* <PatientJournalListing /> */}
+       <SignUp />
+       <LogIn />
+       {/* <SignUpForm />
+       <Template /> 
+       <Footer /> */}
      
     </div>
   );
