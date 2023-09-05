@@ -6,14 +6,14 @@ import SignUpForm from "./Components/SignUpForm.js"
 import LogIn from './Components/LogIn';
 import Template from './Components/Template';
 //import TherapistDashboard from './Components/TherapistDashboard.js';
-//import PatientJournalListing from './Components/PatientJournalListing';
+import PatientJournalListing from './Components/Patients/PatientJournalListing';
 
 function App() {
   return (
     <div>
       <Navbar />
       {/* <TherapistDashboard /> */}
-      {/* <PatientJournalListing /> */}
+      <PatientJournalListing />
        <SignUp />
        <LogIn />
        {/* <SignUpForm />
