@@ -1,24 +1,27 @@
 
-import Navbar from './Components/Navbar';
-import Footer from './Components/Footer';
-import SignUp from './Components/SignUp';
-import SignUpForm from "./Components/SignUpForm.js"
-import LogIn from './Components/LogIn';
-import Template from './Components/Template';
-//import TherapistDashboard from './Components/TherapistDashboard.js';
-import PatientJournalListing from './Components/Patients/PatientJournalListing';
+//DEPENDENCIES
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+//PAGES
+import Home from './Pages/Home.js'
+
+//COMPONENTS
+import Navbar from "./Components/Navbar.js"
+import SignUpForm from "./Components/SignUpForm.js";
+import TherapistDashboard from "./Dashboards/TherapistDashboard.js";
 
 function App() {
   return (
     <div>
-      <Navbar />
-      {/* <TherapistDashboard /> */}
-      <PatientJournalListing />
-       <SignUp />
-       <LogIn />
-       {/* <SignUpForm />
-       <Template /> 
-       <Footer /> */}
+      {/* <Navbar /> */}
+      <TherapistDashboard />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<SignUpForm />} />
+          {/* <Route path="/dashboard" element={<TherapistDashboard />} /> */}
+        </Routes>
+      </Router>
      
     </div>
   );

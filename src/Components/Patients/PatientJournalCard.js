@@ -1,4 +1,4 @@
-import ProfilePic from "../images/profile-pic.png"
+import ProfilePic from "../../images/profilepic.png"
 export default function PatientJournalCard () {
     return (
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
