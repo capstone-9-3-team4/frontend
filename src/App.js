@@ -9,17 +9,19 @@ import Home from './Pages/Home.js'
 import Navbar from "./Components/Navbar.js"
 import SignUpForm from "./Components/SignUpForm.js";
 import TherapistDashboard from "./Dashboards/TherapistDashboard.js";
+import PatientDashboard from "./Dashboards/PatientDashboard.js";
 
 function App() {
   return (
     <div>
-      {/* <Navbar /> */}
-      <TherapistDashboard />
+      <Navbar />
+      {/* <TherapistDashboard /> */}
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUpForm />} />
-          {/* <Route path="/dashboard" element={<TherapistDashboard />} /> */}
+          <Route path="/therapist" element={<TherapistDashboard />} />
+          <Route path="/patient" element={<PatientDashboard />} />
         </Routes>
       </Router>
      

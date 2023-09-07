@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
-import AuthDetails from './AuthDetails';
-
-
+import { auth } from "./firebase";
 
 export default function LogIn() {
   const [email, setEmail] = useState('');
@@ -78,7 +75,7 @@ export default function LogIn() {
                           href="#">Forgot Password?</a>
                       </div>
                 </form>
-                <AuthDetails />
+           
               </div>
             </div>
           </div>

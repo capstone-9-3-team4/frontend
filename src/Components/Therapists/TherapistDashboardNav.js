@@ -1,4 +1,6 @@
 import Logo from "../../../src/images/logo.png"
+import AuthDetails from "../AuthDetails";
+//GO TO AIRBNB SITE TO BUILD A SIMILAR NAVBAR
 
 export default function TherapistDashboardNav() {
   return (
@@ -15,6 +17,7 @@ export default function TherapistDashboardNav() {
           <li>
             <a href="#" className="text-white hover:text-light-green">Bell with Notification</a>
           </li>
+          <li><AuthDetails /></li>
         </ul>
       </div>
     </nav>
