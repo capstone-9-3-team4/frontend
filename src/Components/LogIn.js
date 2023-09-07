@@ -70,11 +70,6 @@ export default function LogIn() {
                           href="#">Forgot Password?</a>
                       </div>
                 </form>
-                          type="submit">Sign In</button>
-                        <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-dark-blue hover:text-blue"
-                          href="#">Forgot Password?</a>
-                      </div>  
-                </form>
         
               </div>
             </div>
