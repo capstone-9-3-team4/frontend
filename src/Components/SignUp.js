@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function  SignUp() {
   return (
     <div className="font-sans r">
@@ -8,8 +10,8 @@ export default function  SignUp() {
           <br />
           <p className="text-dark-blue">Explain the purpose of this application</p>
           <br />
-          <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded"
-                          type="submit">Sign Up</button>
+          <Link to={'/signup'}><button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded"
+                          type="submit">Sign Up</button></Link>
       </div>
     </div>
   );
