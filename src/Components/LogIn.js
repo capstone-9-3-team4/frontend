@@ -65,17 +65,11 @@ export default function LogIn() {
                          <input className="w-full px-5 py-1 text-gray-700 bg-light-green rounded focus:outline-none focus:bg-white"
                          value={password}
                          onChange={(e) => setPassword(e.target.value)}
-                          type="submit">Log In</button>
+                          type="submit">Log In</input>
                         <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-dark-blue hover:text-blue"
                           href="#">Forgot Password?</a>
                       </div>
                 </form>
-                          type="submit">Sign In</button>
-                        <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-dark-blue hover:text-blue"
-                          href="#">Forgot Password?</a>
-                      </div>  
-                </form>
-        
               </div>
             </div>
           </div>

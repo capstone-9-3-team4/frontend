@@ -1,6 +1,5 @@
 import Logo from "../../../src/images/logo.png"
 import AuthDetails from "../AuthDetails";
-//GO TO AIRBNB SITE TO BUILD A SIMILAR NAVBAR
 
 export default function TherapistDashboardNav() {
   return (
@@ -19,7 +18,7 @@ export default function TherapistDashboardNav() {
           </li>
           <li><AuthDetails /></li>
         </ul>
-      </div>
+        </div>
     </nav>
   );
 }
