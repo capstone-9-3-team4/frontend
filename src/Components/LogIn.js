@@ -66,8 +66,8 @@ export default function LogIn() {
                          value={password}
                          onChange={(e) => setPassword(e.target.value)}
                           type="submit">Log In</input>
-                        {/* <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-dark-blue hover:text-blue"
-                          href="#">Forgot Password?</a> */}
+                        <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-dark-blue hover:text-blue"
+                          href="#">Forgot Password?</a>
                       </div>
                 </form>
               </div>
