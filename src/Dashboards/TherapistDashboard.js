@@ -1,5 +1,5 @@
 import PatientJournalCards from "../Components/Patients/PatientJournalCards.js"
-import TherapistDashboardNav from "../Components/Therapists/TherapistDashboardNav.js"
+import TherapistDashboardNav from "../Components/Therapists/TherapistDashBoardNav.js"
 
 export default function TherapistDashboard() {
   return (

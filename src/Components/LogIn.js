@@ -54,7 +54,7 @@ export default function LogIn() {
                 <form onSubmit={login2} className="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl">
                     <p className="text-center text-dark-purple text-lg font-bold">LOGIN</p>
                       <div className="">
-                        <label className="block text-sm text-white" for="email">E-mail</label>
+                        <label className="block text-sm text-white">E-mail</label>
                         <input type="email" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -66,8 +66,8 @@ export default function LogIn() {
                          value={password}
                          onChange={(e) => setPassword(e.target.value)}
                           type="submit">Log In</input>
-                        <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-dark-blue hover:text-blue"
-                          href="#">Forgot Password?</a>
+                        {/* <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-dark-blue hover:text-blue"
+                          href="#">Forgot Password?</a> */}
                       </div>
                 </form>
               </div>
