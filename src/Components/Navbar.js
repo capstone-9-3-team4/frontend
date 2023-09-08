@@ -1,5 +1,6 @@
 import Logo from "../../src/images/logo.png"
 
+
 export default function  Navbar() {
   return (
     <nav className="bg-dark-green p-4">
@@ -17,6 +18,9 @@ export default function  Navbar() {
           </li>
           <li>
             <a href="#" className="text-white hover:text-light-green">Contact</a>
+          </li>
+          <li>
+         
           </li>
         </ul>
       </div>
