@@ -16,9 +16,9 @@ function App() {
       {/* <PatientJournalListing /> */}
        <SignUp />
        <LogIn />
-       {/* <SignUpForm />
+       <SignUpForm />
        <Template /> 
-       <Footer /> */}
+       <Footer />
      
     </div>
   );
