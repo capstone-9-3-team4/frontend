@@ -1,11 +1,13 @@
-import PatientJournalCards from "../Components/Patients/PatientJournalCards.js"
-// import TherapistDashboardNav from "../Components/Therapists/TherapistDashBoardNav.js"
 
+import PatientJournalCards from "../Components/Patients/PatientJournalCards.js"
+import TherapistDashboardNav from "../Components/TherapistDashboardNav.js"
+//this is a test
 export default function TherapistDashboard() {
   return (
     <div>
-        {/* <TherapistDashboardNav /> */}
+        <TherapistDashboardNav />
         <PatientJournalCards />
+        
         
     </div>
   )

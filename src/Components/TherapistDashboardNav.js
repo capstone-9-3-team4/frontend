@@ -1,5 +1,6 @@
-import Logo from "../../../src/images/logo.png"
-import AuthDetails from "../AuthDetails";
+
+import Logo from "../images/logo.png"
+import AuthDetails from "./AuthDetails";
 
 export default function TherapistDashboardNav() {
   return (

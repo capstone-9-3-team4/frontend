@@ -2,6 +2,7 @@
 //DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 //PAGES
 import Home from './Pages/Home.js'
 
@@ -19,8 +20,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUpForm />} />
-          {/* <Route path="/therapist" element={<TherapistDashboard />} />
-          <Route path="/patient" element={<PatientDashboard />} /> */}
+             <Route path="/therapist" element={<TherapistDashboard />} />
+       <Route path="/patient" element={<PatientDashboard />} />
         </Routes>
       </Router>
      
