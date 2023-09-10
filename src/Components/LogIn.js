@@ -14,6 +14,7 @@ export default function LogIn() {
   useEffect(() => {
       // console.log(userId)
       if (userId) {
+     
           axios.get(`${process.env.REACT_APP_API_URL}/users/${userId}`)
               .then(response => {
                   //console.log("hello1")
