@@ -12,7 +12,9 @@ export default function LogIn() {
   const navigate = useNavigate();
 
   useEffect(() => {
+      // console.log(userId)
       if (userId) {
+     
           axios.get(`${process.env.REACT_APP_API_URL}/users/${userId}`)
               .then(response => {
                   //console.log("hello1")
@@ -38,6 +40,7 @@ export default function LogIn() {
   useEffect(() => {
       // Navigate based on user role
       if (userObj.role === "T") {
+        console.log("therapist")
           navigate("/therapist");
       } else if (userObj.role === "P") {
           navigate("/patient");
