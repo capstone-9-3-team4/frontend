@@ -41,7 +41,7 @@ export default function LogIn() {
       // Navigate based on user role
       if (userObj.role === "T") {
         console.log("therapist")
-          navigate("/therapist");
+          navigate(`/therapist/${userId}/highrisk`);
       } else if (userObj.role === "P") {
           navigate("/patient");
       }
