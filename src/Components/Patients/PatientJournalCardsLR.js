@@ -13,7 +13,7 @@ export default function PatientJournalCardsLR () {
    
     useEffect(() => {
         axios
-            .get(`${API}/therapist/${tid}/dashboard/greenrisk`)
+            .get(`${API}/therapist/${tid}/dashboard/lowrisk`)
             .then((response) => {
 
                 setPatientAtLowRisk(response.data);
