@@ -13,6 +13,7 @@ import TherapistDashboardHR from "./Dashboards/TherapistDashboardHR.js";
 import TherapistDashboardMR from "./Dashboards/TherapistDashboardMR.js";
 import TherapistDashboardLR from "./Dashboards/TherapistDashboardLR.js";
 import PatientDashboard from "./Dashboards/PatientDashboard.js";
+import PatientProfileByTherapist from "./Components/Patients/PatientProfileByTherapist.js"
 
 function App() {
   return (
@@ -25,7 +26,9 @@ function App() {
           <Route path="/therapist/:tid/highrisk" element={<TherapistDashboardHR />} />
           <Route path="/therapist/:tid/mediumrisk" element={<TherapistDashboardMR />} />
           <Route path="/therapist/:tid/lowrisk" element={<TherapistDashboardLR />} />
-         <Route path="/patient" element={<PatientDashboard />} />
+          <Route path="/patient" element={<PatientDashboard />} />
+          <Route path="/therapist/:tid/patient/:pid" element={<PatientProfileByTherapist/>} />
+
         </Routes>
       </Router>
      
