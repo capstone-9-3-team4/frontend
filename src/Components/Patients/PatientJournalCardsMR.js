@@ -13,7 +13,7 @@ export default function PatientJournalCardsMR () {
    
     useEffect(() => {
         axios
-            .get(`${API}/therapist/${tid}/dashboard/yellowrisk`)
+            .get(`${API}/therapist/${tid}/dashboard/mediumrisk`)
             .then((response) => {
 
                 setPatientAtMiddleRisk(response.data);
