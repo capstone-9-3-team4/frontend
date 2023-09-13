@@ -25,6 +25,7 @@ function PatientProfileByTherapist() {
     axios
       .get(`${API}/therapist/${tid}/patients/${pid}/journals/unread`)
       .then((journals) => {
+        
         setUPatientJournals(journals.data);
       })
       .catch((e) => {
@@ -76,22 +77,22 @@ function PatientProfileByTherapist() {
                   <tr className="hover:bg-gray-100">
                     <td className="border border-gray-300 p-2">
                       {x.analysis_score === 1 ? (
-                        <Link
-                          to="/"
+                        <Link 
+                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
                           className="text-red underline"
                         >
                           High
                         </Link>
                       ) : x.analysis_score === 2 ? (
                         <Link
-                          to="/"
+                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
                           className="text-yellow-500 underline"
                         >
                           Medium
                         </Link>
                       ) : (
                         <Link
-                          to="/"
+                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
                           className="text-green-500 underline"
                         >
                           Low
