@@ -14,7 +14,7 @@ function PatientProfileByTherapist() {
     axios
       .get(`${API}/therapist/${tid}/patients/${pid}`)
       .then((response) => {
-        console.log(response.data)
+        
         setPatientProfile(response.data);
       })
       .catch((e) => {
