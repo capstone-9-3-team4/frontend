@@ -1,13 +1,15 @@
 import AuthDetails from "./AuthDetails";
+import SearchBar from "./SearchBar.js";
+import { useParams,Link } from "react-router-dom";
 import { 
-  // HiOutlineDesktopComputer,
-  // HiUserGroup,
   FcHighPriority,
   FcMediumPriority,
-  FcLowPriority
+  FcLowPriority,
+  FcAlphabeticalSortingAz,
   
 } from "react-icons/fc";
-import { useParams,Link } from "react-router-dom";
+
+
 
 export default function TherapistDashboardNav() {
   
@@ -17,35 +19,31 @@ export default function TherapistDashboardNav() {
 
   return (
    <nav className="p-2">
-      <div className="container flex justify-center">
-        <ul className="flex space-x-5">
-         
+      <div >
+        <ul className="container flex justify-around">
+          {/* <div className="border-4 border-blue rounded-2xl"> */}
            <li>
              <Link to={`/therapist/${tid}/highrisk`}>
-               <i className="text-dark-green text-6xl hover:text-7xl"><FcHighPriority /></i>
+               <i className="text-red text-5xl hover:opacity-40"><FcHighPriority /></i>
              </Link>
            </li>
            <li>
              <Link to={`/therapist/${tid}/mediumrisk`}>
-                <i className="text-dark-green text-6xl hover:text-7xl"><FcMediumPriority /></i>
+                <i className="text-dark-green text-5xl hover:opacity-40"><FcMediumPriority /></i>
               </Link>
            </li>
            <li>
              <Link to={`/therapist/${tid}/lowrisk`}>
-                <i className="text-dark-green text-6xl hover:text-7xl"><FcLowPriority /></i>
+                <i className="text-dark-green text-5xl hover:opacity-40"><FcLowPriority /></i>
               </Link>
            </li>
-
-
-          {/* <li>
-            <a href="#" className="text-dark-green text-2xl hover:text-light-green"><HiOutlineDesktopComputer /></a>
-          </li>
-          <li>
-            <a href="#" className="text-dark-green text-2xl hover:text-light-green"><HiUserGroup /></a>
-          </li> */}
-          {/* <li>
-            <a href="#" className="text-dark-green hover:text-light-green"></a>
-          </li> */}
+           {/* </div> */}
+           <li>
+             <Link to="/">
+                <i className="text-dark-green text-5xl hover:opacity-40"><FcAlphabeticalSortingAz /></i>
+              </Link>
+           </li>
+           <li><SearchBar  /></li>
           <li><AuthDetails /></li>
         </ul>
       </div>

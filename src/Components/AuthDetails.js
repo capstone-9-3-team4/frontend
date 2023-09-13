@@ -3,6 +3,7 @@ import { auth } from "./firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
+
 const AuthDetails = () => {
     const [authUser, setAuthUser] = useState(null);
     const navigate = useNavigate()
@@ -29,9 +30,12 @@ const AuthDetails = () => {
 
     return (
         <div className="text-dark-green hover:text-light-green">
-            {authUser ? <><p>{`Signed In as ${authUser.email}`}</p><button onClick={userSignOut}>Sign Out</button></> : null}
+             
+            {authUser ? <><button onClick={userSignOut}>{` ${authUser.email}`} <br></br>Sign Out</button></> : null}
             {/* {authUser ? <><p>{`Signed In as ${authUser.email}`}</p><button onClick={userSignOut}>Sign Out</button></> : <p>Signed Out</p>} */}
         </div>
+        // <i className="text-dark-green text-5xl hover:text-6xl"><FcAutomatic /></i>
+        // <p>{`Signed In as ${authUser.email}`}</p>
     );
 };
 export default AuthDetails;
