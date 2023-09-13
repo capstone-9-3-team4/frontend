@@ -1,37 +1,58 @@
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const API = process.env.REACT_APP_API_URL;
+
 export default function PatientJournalEntry () {
+    const { tid, pid, jid } = useParams();
+
+    const [journal, setJournal] = useState({});
+
+    useEffect(() => {
+      axios
+        .get(`${API}/therapist/${tid}/patients/${pid}/journals/unread/${jid}`)
+        .then((response) => {
+            setJournal(response.data);
+            console.log(journal)
+        })
+        .catch((e) => {
+          console.warn("catch", e);
+        });
+    }, [tid, pid, jid]);
+
     return (
-        <div className="font-sans text-dark-blue h-screen">
-            <div className="m-8 p-10 container mx-auto h-full rounded-md  bg-light-green bg-cove black justify-left items-center">
-                <div className="grid grid-cols-2">
-                    <div>
-                        <span className="flex gap-3">
-                            <p>Checkbox - Read</p>
-                            <h2 className="font-semibold text-center">Patient Journal Entry with Date</h2>
-                        </span>
-                            <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                                <p className="mx-5">Today was a difficult day. Lorem ipsum is made up of random Latin words and phrases that don't have a coherent meaning. It usually begins with "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua". </p>
-                            </div>
+         <div className="font-sans h-screen">
+            <div className="m-8 p-10 container items-center">
+            <h1 className="uppercase font-bold text-3xl text-dark-purple "> </h1>
+                <div className="grid grid-cols-2 gap-10 mt-5">
+                    <div className="text-center">
+                            <h2 className="font-bold text-dark-green uppercase text-center">Patient Journal Entry</h2>
+                            <div class="rounded overflow-hidden shadow-lg">
+                                <p className="mx-5">{journal.journal_entry} </p>
+                            </div> 
+                            <button className="px-4 py-1 mt-2 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded"
+                            type="submit">Read</button>
                     </div>
-                    <div>
-                    <h2>AI Analysis</h2>
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                        <p>Lorem ipsum is used to help designers plan out where the content will sit, without needing to wait for the content to be written and approved. It's also used to create a natural looking block of text that doesn't distract from the layout. </p>
+                    <div className="text-center">
+                    <h2 className="font-bold  text-dark-green uppercase text-center">AI Analysis & Score - {journal.analysis_score}</h2>
+                    <div class="rounded overflow-hidden shadow-lg">
+                        <p className="mx-5">Lorem ipsum is used to help designers plan out where the content will sit, without needing to wait for the content to be written and approved. It's also used to create a natural looking block of text that doesn't distract from the layout. </p>
                     </div>
                     </div>
                 </div>
 
-                <div className="">
-                    <div className="">
-                        <h2>Therapist Notes</h2>
-                        <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                            <p>Lorem ipsum is used to help designers plan out where the content will sit, without needing to wait for the content to be written and approved. It's also used to create a natural looking block of text that doesn't distract from the layout. </p>
-                        </div>
-                    </div>
-                    
-                    <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded"
-                            type="submit">Submit</button>
+                <div className="text-center mt-5">
+                        <h2 className="font-bold  text-dark-green uppercase">Therapist Notes</h2>
+                        <form>
+                            <textarea className="w-full px-5 py-1 text-gray-700 bg-light-green rounded focus:outline-none focus:bg-white" name="message" placeholder="My Notes..." tabindex="5"></textarea>
+                        </form>
+                
+                        <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded"
+                                type="submit">Submit</button>
+                    </div>   
                 </div>
-            </div>
+            
         </div>
     )
 }
