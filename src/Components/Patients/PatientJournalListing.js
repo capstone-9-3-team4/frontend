@@ -1,4 +1,6 @@
+
 export default function PatientJournalListing () {
+    
     return (
         <div className="font-sans h-screen">
             <div className="m-8 p-10 container text-center mx-auto h-full rounded-md  bg-light-green bg-cove black justify-left items-center">
