@@ -27,7 +27,7 @@ function App() {
           <Route path="/therapist/:tid/highrisk" element={<TherapistDashboardHR />} />
           <Route path="/therapist/:tid/mediumrisk" element={<TherapistDashboardMR />} />
           <Route path="/therapist/:tid/lowrisk" element={<TherapistDashboardLR />} />
-          <Route path="/patient" element={<PatientDashboard />} />
+          <Route path="/patient/:userId/dashboard" element={<PatientDashboard />} />
           <Route path="/therapist/:tid/patient/:pid" element={<PatientProfileByTherapist/>} />
           <Route path="/therapist/:tid/patient/:pid/journals/unread/:jid" element={<PatientJournalEntry />} />
         </Routes>
