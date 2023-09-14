@@ -40,10 +40,10 @@ export default function LogIn() {
   useEffect(() => {
       // Navigate based on user role
       if (userObj.role === "T") {
-        console.log("therapist")
+        
           navigate(`/therapist/${userId}/highrisk`);
       } else if (userObj.role === "P") {
-          navigate("/patient");
+          navigate(`/patient/${userId}/dashboard`);
       }
   }, [userObj, navigate]);
 

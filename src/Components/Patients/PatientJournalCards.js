@@ -11,6 +11,7 @@ export default function PatientJournalCards () {
 
     const { tid } = useParams();
     const [patientAtRisk, setPatientAtRisk] = useState([]);
+    
    
     useEffect(() => {
         axios
@@ -18,7 +19,7 @@ export default function PatientJournalCards () {
             .then((response) => {
 
                 setPatientAtRisk(response.data);
-
+              
             })
             .catch((e) => {
 
