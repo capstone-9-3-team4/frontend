@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function PatientJournalCard ({ patient }) {
 
     return (
-        <div class="max-w-sm rounded overflow-hidden border-2 hover:border-indigo-500 rounded-3xl shadow-lg ">
+        <div class="max-w-sm overflow-hidden border-2 hover:border-indigo-500 rounded-3xl shadow-lg ">
             <Link to={`/therapist/${patient.t_id}/patient/${patient.p_id}`}>
                 <img class="w-full" src={`${patient.profile_picture}`} alt="PatientPic" />
                 <div class="px-6 py-4">

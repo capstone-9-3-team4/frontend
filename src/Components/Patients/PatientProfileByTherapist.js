@@ -79,7 +79,7 @@ function PatientProfileByTherapist() {
                       {x.analysis_score === 1 ? (
                         <Link 
                           to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-red underline"
+                          className="text-red-500 underline"
                         >
                           High
                         </Link>
