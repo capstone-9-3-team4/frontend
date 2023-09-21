@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
+import {  HiCake,
+          HiHome,
+          HiPhone,
+          HiUser,
+          HiEnvelope, } 
+  from "react-icons/hi2";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -41,42 +47,42 @@ function PatientProfileByTherapist() {
 
   return (
     <>
-      <article className="bg-white p-4 rounded-lg shadow-md">
+      <div className="flex gap-5 m-5">
         <div>
           <img
             src={patientProfile.profile_picture}
             alt={`${patientProfile.first_name} ${patientProfile.last_name}`}
-            className="w-48 h-48 rounded-full object-cover mx-auto"
+            className="w-48 h-48 rounded-full mx-auto shadow-md bg-dark-green p-1"
           />
         </div>
-        <h2 className="text-2xl font-semibold mt-4">
-          {patientProfile.first_name} {patientProfile.last_name}
-        </h2>
-        <p><strong>Email:</strong> {patientProfile.email}</p>
-        <p><strong>Date of Birth:</strong> {patientProfile.dob}</p>
-        <p><strong>Gender:</strong> {patientProfile.gender}</p>
-        <p><strong>Contact Number:</strong> {patientProfile.contact_number}</p>
-        <p><strong>Address:</strong> {patientProfile.address}</p>
-        <p><strong>City:</strong> {patientProfile.city}</p>
-        <p><strong>State:</strong> {patientProfile.state}</p>
-        <p><strong>Zip Code:</strong> {patientProfile.zip_code}</p>
-      </article>
+        <div>
+          <h2 className="text-2xl font-semibold mt-4">
+            {patientProfile.first_name} {patientProfile.last_name}
+          </h2>
+          <p><HiCake /></p><p> {formatDate(patientProfile.dob)}</p>
+          <p><HiUser/> {patientProfile.gender}</p>
+          <p><HiEnvelope />{patientProfile.email}</p>
+          <p><HiPhone /> {patientProfile.contact_number}</p>
+          <p><HiHome /> {patientProfile.address}</p>
+          <p> {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p>
+        </div>
+      </div>
 
-      <article className="mt-6">
-        <table className="w-full border-collapse border border-gray-300">
+      <div className="m-6">
+        <table className="w-full border-collapse border border-dark-green">
           <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-2">Analysis Score</th>
-              <th className="border border-gray-300 p-2">Entry Date</th>
-              <th className="border border-gray-300 p-2">Journal Entry</th>
+            <tr className="bg-dark-green text-white">
+              <th className="border border-light-green p-2">Analysis Score</th>
+              <th className="border border-light-green p-2">Entry Date</th>
+              <th className="border border-light-green p-2">Journal Entry</th>
             </tr>
           </thead>
           <tbody>
             {upatientJournals.map((x) => {
               return (
                 <React.Fragment key={x.id}>
-                  <tr className="hover:bg-gray-100">
-                    <td className="border border-gray-300 p-2">
+                  <tr className="hover:bg-light-green">
+                    <td className="border border-dark-green p-2">
                       {x.analysis_score === 1 ? (
                         <Link 
                           to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
@@ -100,10 +106,10 @@ function PatientProfileByTherapist() {
                         </Link>
                       )}
                     </td>
-                    <td className="border border-gray-300 p-2">
+                    <td className="border border-dark-green p-2">
                       {formatDate(x.entry_date)}
                     </td>
-                    <td className="border border-gray-300 p-2" colSpan="2">
+                    <td className="border border-dark-green p-2" colSpan="2">
                       {x.journal_entry || "No journal entry available."}
                     </td>
                   </tr>
@@ -112,7 +118,7 @@ function PatientProfileByTherapist() {
             })}
           </tbody>
         </table>
-      </article>
+      </div>
     </>
   );
 }
