@@ -31,7 +31,7 @@ const AuthDetails = () => {
     return (
         <div className="text-dark-green hover:text-light-green">
              
-            {authUser ? <><button onClick={userSignOut}>{` ${authUser.email}`} <br></br>Sign Out</button></> : null}
+            {authUser ? <><button onClick={userSignOut}>{` ${authUser.email}`} <br></br><section className="underline">Sign Out</section></button></> : null}
             {/* {authUser ? <><p>{`Signed In as ${authUser.email}`}</p><button onClick={userSignOut}>Sign Out</button></> : <p>Signed Out</p>} */}
         </div>
         // <i className="text-dark-green text-5xl hover:text-6xl"><FcAutomatic /></i>
