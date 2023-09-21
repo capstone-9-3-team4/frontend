@@ -48,27 +48,27 @@ export default function PatientJournalEntry () {
     return (
        
        <div className={journal.analysis_score === 1 ? ('border-red-500') : journal.analysis_score === 2 ? ('border-yellow-500') : ('border-green-500') }>
-        <div className="justify-center mx-6 overflow-hidden border-4 rounded-3xl shadow-lg ">
+        <div className="justify-center mx-6 h-screen overflow-hidden border-4 rounded-3xl shadow-lg ">
             <div className="p-10 items-center">
-                <h1 className="text-center uppercase font-bold text-3xl text-dark-purple "> </h1>
+                <h1 className="text-center uppercase font-bold text-3xl text-dark-purple "> Patient Journal & Analysis </h1>
                 <div className="grid grid-cols-2 gap-6 mt-5">
-                    <div className="text-center">
+                    <div className="justify-center mx-6 p-5 text-center border-4 rounded-3xl ">
                             <h2 className="font-bold text-dark-green uppercase text-center">Patient Journal Entry</h2>
-                            <div class="rounded overflow-hidden shadow-lg">
+                            <div >
                                 <p className="mx-5">{journal.journal_entry} </p>
                             </div> 
                             <button className="px-4 py-1 mt-2 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded"
                             type="submit">Mark as Read</button>
                     </div>
-                    <div className="text-center">
+                    <div className="justify-center mx-6 p-5 text-center border-4 rounded-3xl ">
                         <h2 className="font-bold  text-dark-green uppercase text-center">AI Analysis & Score - {journal.analysis_score}</h2>
-                        <div class="rounded overflow-hidden shadow-lg">
+                        <div>
                             <p className="mx-5">Lorem ipsum is used to help designers plan out where the content will sit, without needing to wait for the content to be written and approved. It's also used to create a natural looking block of text that doesn't distract from the layout. </p>
                     </div>
                     </div>
                 </div>
 
-                <div className="text-center mt-5">
+                <div className="justify-center mt-10 mx-6 p-5 text-center border-4 rounded-3xl ">
                         <h2 className="font-bold  text-dark-green uppercase">Therapist Notes</h2>
                         <form>
                             <textarea 

@@ -3,6 +3,7 @@ import PatientDashBoardNav from "../Components/PatientDashBoardNav";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { OpenAI} from 'langchain/llms/openai';
+import PatientJournalCard from "../Components/Patients/PatientJournalCard";
 
 
  const API = process.env.REACT_APP_API_URL;
@@ -90,10 +91,12 @@ const resp = await openai.call(`${entryText},  based on this entry can you give 
     
 
   return (
-    <div>
+    <div className="justify-center mx-6 h-screen p-10 overflow-hidden border-4 rounded-3xl shadow-lg ">
       <PatientDashBoardNav />
+      <div className="text-center mt-5">
       <form onSubmit={handleSubmit}>
         <textarea
+          className="w-full px-5 bg-light-green rounded focus:outline-none focus:bg-white" 
           rows="4"
           cols="50"
           placeholder="Write your journal entry here..."
@@ -103,6 +106,7 @@ const resp = await openai.call(`${entryText},  based on this entry can you give 
         <br />
         <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded" type="submit" >Submit Journal Entry</button>
       </form>
+      </div>
     </div>
   );
   
