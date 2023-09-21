@@ -2,12 +2,28 @@ import React, { useState,useEffect } from "react";
 import PatientDashBoardNav from "../Components/PatientDashBoardNav";  
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { OpenAI } from 'langchain/llms/openai';
+// import { PromptTemplate } from 'langchain/prompts';
+// import { LLMChain } from 'langchain/chains';
+
+//  import * as dotenv from "dotenv";
+//  dotenv.config();
 
  const API = process.env.REACT_APP_API_URL;
 
+
+
   export default function PatientDashboard() {
     const { userId } = useParams();
-    
+     
+
+     
+ const llm = new OpenAI({
+  openAIApiKey: "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",
+});
+
+    // const  model = new OpenAI({})
+
 
 
     function getDate() {
@@ -54,19 +70,25 @@ import { useParams } from "react-router-dom";
           entry_date:getDate(),
           journal_entry:entryText,
           therapist_notes:'',
-          analysis_score:1,
+          analysis_score:0,
           read:false
 
     }
-        axios
-        .post(`${API}/journal` , journalEntry)
-        .then(() => {
-            // navigate(`${API}/therapist/${tid}/patients/${pid}/journals/unread`);
-            console.log('check data base')
-        },
-        (error) => console.error(error)
-        )
-        .catch((c) => console.warn("catch", c));
+
+const resp = await llm.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate help for their mental health state, 2 being the patient is in an ok mental health state and 3 being the patient has a good mental health state), evaluate this as a therapist`)
+        // axios
+        // .post(`${API}/journal` , journalEntry)
+        // .then(() => {
+        //     // navigate(`${API}/therapist/${tid}/patients/${pid}/journals/unread`);
+        //     console.log('check data base')
+        // },
+        // (error) => console.error(error)
+        // )
+        // .catch((c) => console.warn("catch", c));
+
+
+        console.log(resp)
+        console.log('this is a jounal object ',journalEntry)
    
   }
     
@@ -83,7 +105,7 @@ import { useParams } from "react-router-dom";
           onChange={handleTextChange}
         ></textarea>
         <br />
-        <button type="submit" >Submit Journal Entry</button>
+        <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded" type="submit" >Submit Journal Entry</button>
       </form>
     </div>
   );
