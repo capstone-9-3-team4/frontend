@@ -2,27 +2,23 @@ import React, { useState,useEffect } from "react";
 import PatientDashBoardNav from "../Components/PatientDashBoardNav";  
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { OpenAI } from 'langchain/llms/openai';
-// import { PromptTemplate } from 'langchain/prompts';
-// import { LLMChain } from 'langchain/chains';
+import { OpenAI} from 'langchain/llms/openai';
 
-//  import * as dotenv from "dotenv";
-//  dotenv.config();
 
  const API = process.env.REACT_APP_API_URL;
-
-
+ const AI_APIKEY = process.env.REACT_APP_OPENAI_API_KEY;
+  
 
   export default function PatientDashboard() {
     const { userId } = useParams();
      
+   
 
-     
- const llm = new OpenAI({
-  openAIApiKey: "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",
-});
 
-    // const  model = new OpenAI({})
+
+     const  openai = new OpenAI({ 
+         openAIApiKey: AI_APIKEY})
+
 
 
 
@@ -41,7 +37,7 @@ import { OpenAI } from 'langchain/llms/openai';
             .get(`${API}/patients/user/${userId}`)
          
             .then((response) => {
-                console.log(response.data)
+                
               setPatient(response.data);
 
             })
@@ -75,7 +71,7 @@ import { OpenAI } from 'langchain/llms/openai';
 
     }
 
-const resp = await llm.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate help for their mental health state, 2 being the patient is in an ok mental health state and 3 being the patient has a good mental health state), evaluate this as a therapist`)
+const resp = await openai.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate help for their mental health state, 2 being the patient is in an ok mental health state and 3 being the patient has a good mental health state), evaluate this as a therapist`)
         // axios
         // .post(`${API}/journal` , journalEntry)
         // .then(() => {
@@ -88,7 +84,7 @@ const resp = await llm.call(`${entryText},  based on this entry can you give me 
 
 
         console.log(resp)
-        console.log('this is a jounal object ',journalEntry)
+       console.log('this is a jounal object ',journalEntry)
    
   }
     

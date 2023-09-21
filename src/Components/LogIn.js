@@ -18,7 +18,7 @@ export default function LogIn() {
           axios.get(`${process.env.REACT_APP_API_URL}/users/${userId}`)
               .then(response => {
                   //console.log("hello1")
-                  console.log(response.data)
+                
                   setUserObj(response.data);
                  
 
