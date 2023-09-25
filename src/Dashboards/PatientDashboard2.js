@@ -65,17 +65,17 @@ function PatientDashBoard2() {
 
   return (
     
-    <div className="justify-center mx-6 h-screen px-2 py-1 overflow-hidden border-4 rounded-3xl shadow-lg">
+    <div className="justify-center mx-6 h-screen bg-gray-100 px-2 py-1 overflow-y-auto border-4 rounded-3xl shadow-lg">
     
       <div className="flex flex-row">
           
-         <div className="flex flex-col  border-2 border-grey-300 rounded-3xl h-screen  shadow-lg justify-around w-64  px-2">
+         <div className="flex flex-col  border-2 border-gray-300 bg-white rounded-3xl h-screen  shadow-lg justify-around w-64  px-2">
             
             <div className="flex items-center justify-center text-gray-600 text-3x1 py-3">
                 <b>{`${patientProfile.first_name}  ${patientProfile.last_name}`}</b>
             </div>
 
-             <div className="flex flex-col flex-auto">
+             <div className="flex flex-col flex-auto ">
                 <div className="p-2 hover:bg-yellow-100 py-2">
                     <div className="flex flex-row space-x-6">
                          < MdDashboard className="hover:text-pink-500 hover:animate-ping"/>
@@ -107,9 +107,9 @@ function PatientDashBoard2() {
         <div className="flex-auto">
            {changeFlag ==="dashboard" &&
              <div className="flex flex-col">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col bg-white rounded-2xl">
                        <div className="flex flex-row space-x-3">
-                           <h4 className="font-bold text-gray-500 p-2"> Profile</h4> 
+                           <h4 className="font-bold text-gray-500 p-2"> Dashboard Profile</h4> 
                        </div>
                        <p className="text-gray-400 px-2">{getDate()}</p>
                     </div> 
@@ -153,6 +153,9 @@ function PatientDashBoard2() {
                               
                              </div>
 
+                             
+                             
+
                              <div className="flex flex-col items-center bg-gray-100">
                                <div className="text-lg font-bold pt-20">Total number of  </div>
                                <div className="text-lg font-bold">Journal Entries</div>
@@ -173,6 +176,9 @@ function PatientDashBoard2() {
                                <p className=" text-6xl text-dark-purple p-4">34</p>
                             
                              </div>
+
+
+                             
                              
                         </div>
                         
@@ -181,11 +187,22 @@ function PatientDashBoard2() {
                     </div>  
               </div> }
             {changeFlag ==="journal" &&
-                  <div className="flex flex-col bg-yellow-200">
+                  <div className="flex flex-col">
+                    <div className="flex flex-col bg-white rounded-2xl">
+                       <div className="flex flex-row space-x-3">
+                           <h4 className="font-bold text-gray-500 p-2"> All Journal Entries</h4> 
+                       </div>
+                       <p className="text-gray-400 px-2">{getDate()}</p>
+                    </div> 
                      <div className="flex flex-col">
                         <div className="flex flex-row space-x-3">
-                          <h4 className="font-bold text-gray-500 p-2"> Journal Entries</h4> 
+                          <h4 className="font-bold text-gray-500 p-2"> Grid with all journal entries here</h4> 
                         </div>
+
+
+
+
+                        
                      </div>   
                   </div> }
        </div> 
