@@ -20,7 +20,7 @@ export default function TherapistDashboardNav() {
   return (
    <nav className="p-2">
       <div >
-        <ul className="container flex justify-around">
+        <ul className="container flex justify-around pl-16">
           {/* <div className="border-4 border-blue rounded-2xl"> */}
            <li>
              <Link to={`/therapist/${tid}/highrisk`}>

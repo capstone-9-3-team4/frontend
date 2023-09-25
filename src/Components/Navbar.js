@@ -5,7 +5,7 @@ export default function  Navbar() {
   return (
     <nav className="bg-white p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white font-bold text-xl"><img src={Logo} width="100" /></div>
+        <div className="text-white font-bold text-xl"><img src={Logo} alt="" width="100" /></div>
         <ul className="flex space-x-4">
           <li>
             <a href="#" className="text-dark-green hover:text-light-green">Home</a>
@@ -25,7 +25,7 @@ export default function  Navbar() {
        
       
       </div>
-      <div><hr class="h-px my-3 bg-dark-green border-0 dark:bg-gray-700"></hr></div>
+      <div><hr className="h-px my-3 bg-dark-green border-0 dark:bg-gray-700"></hr></div>
     </nav>
   );
 }

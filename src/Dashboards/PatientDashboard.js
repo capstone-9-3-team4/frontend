@@ -1,9 +1,10 @@
 import React, { useState,useEffect } from "react";
 import PatientDashBoardNav from "../Components/PatientDashBoardNav";  
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { OpenAI} from 'langchain/llms/openai';
-import PatientJournalCard from "../Components/Patients/PatientJournalCard";
+// import AuthDetails from "../Components/AuthDetails";
+//import PatientJournalCard from "../Components/Patients/PatientJournalCard";
 
 
  const API = process.env.REACT_APP_API_URL;
@@ -13,12 +14,13 @@ import PatientJournalCard from "../Components/Patients/PatientJournalCard";
   export default function PatientDashboard() {
     const { userId } = useParams();
      
-   
+    const navegate = useNavigate()
 
 
 
      const  openai = new OpenAI({ 
-         openAIApiKey: AI_APIKEY})
+                     openAIApiKey: AI_APIKEY
+        })
 
 
 
@@ -52,7 +54,10 @@ import PatientJournalCard from "../Components/Patients/PatientJournalCard";
 
     
     
-    
+  const handleclick = () => {
+      
+     navegate(`/patient/${userId}/dashboard2`)
+  }
     
     
   const handleTextChange = (e) => {
@@ -71,8 +76,8 @@ import PatientJournalCard from "../Components/Patients/PatientJournalCard";
           read:false
 
     }
-
-const resp = await openai.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate help for their mental health state, 2 being the patient is in an ok mental health state and 3 being the patient has a good mental health state), evaluate this as a therapist`)
+   if (entryText) {
+    const resp = await openai.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate help for their mental health state, 2 being the patient is in an ok mental health state and 3 being the patient has a good mental health state), evaluate this as a therapist, response with only one number and no more than 2 paragraph`)
         // axios
         // .post(`${API}/journal` , journalEntry)
         // .then(() => {
@@ -86,7 +91,11 @@ const resp = await openai.call(`${entryText},  based on this entry can you give 
 
         console.log(resp)
        console.log('this is a jounal object ',journalEntry)
-   
+       navegate(`/patient/${userId}/dashboard2`)
+    }
+    else{
+      alert('please enter a journal entry')
+    }
   }
     
 
@@ -104,7 +113,13 @@ const resp = await openai.call(`${entryText},  based on this entry can you give 
           onChange={handleTextChange}
         ></textarea>
         <br />
-        <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded" type="submit" >Submit Journal Entry</button>
+         <div className=" flex flex-row justify-around">
+            
+             <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded-3xl " onClick={handleclick} >Cancel</button>
+             <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded-3xl " type="submit" >Submit Journal Entry</button>
+            
+        
+          </div>
       </form>
       </div>
     </div>
