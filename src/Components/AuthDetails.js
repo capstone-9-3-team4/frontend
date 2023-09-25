@@ -31,7 +31,14 @@ const AuthDetails = () => {
     return (
         <div className="text-dark-green hover:text-light-green">
              
-            {authUser ? <><button onClick={userSignOut}>{` ${authUser.email}`} <br></br><section className="underline">Sign Out</section></button></> : null}
+            {authUser ? 
+              <div className="flex flex-row justify-center">
+               {/* <p className="p-2 text-gray-400">{`Signed In as ${authUser.email}`}</p>  */}
+               <button className="px-6 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded-3xl"  onClick={userSignOut}>
+                Log Out
+               </button>
+             </div> 
+            : null}
             {/* {authUser ? <><p>{`Signed In as ${authUser.email}`}</p><button onClick={userSignOut}>Sign Out</button></> : <p>Signed Out</p>} */}
         </div>
         // <i className="text-dark-green text-5xl hover:text-6xl"><FcAutomatic /></i>

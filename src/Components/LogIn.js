@@ -43,9 +43,9 @@ export default function LogIn() {
         
           navigate(`/therapist/${userId}/highrisk`);
       } else if (userObj.role === "P") {
-          navigate(`/patient/${userId}/dashboard`);
+          navigate(`/patient/${userId}/dashboard2`);
       }
-  }, [userObj, navigate]);
+  }, [userObj, userId,navigate]);
 
 
     return (
