@@ -49,7 +49,6 @@ export default function MoreInfoCards() {
       </div>
     </div>
   </div>
-  {/* <div className="flex space-x-1 items-center"></div> */}
 </div>
     )
 }
