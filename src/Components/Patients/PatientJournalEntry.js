@@ -18,6 +18,7 @@ export default function PatientJournalEntry () {
            
             setJournal(response.data);
             setNotes(response.data.therapist_notes)
+            console.log(journal)
         })
         .catch((e) => {
           console.warn("catch", e);
@@ -32,6 +33,11 @@ export default function PatientJournalEntry () {
         insertNotes();
         
     };
+    
+    const markAsRead = () => {
+        setJournal(journal[`read`] = true)
+        insertNotes()
+    }
 
     const insertNotes = () => {
         
@@ -66,6 +72,7 @@ export default function PatientJournalEntry () {
                                 <p className="mx-5">{journal.journal_entry} </p>
                             </div> 
                             <button className="px-4 py-1 mt-2 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded"
+                            onClick={markAsRead}
                             type="submit">Mark as Read</button>
                     </div>
                     <div className="justify-center mx-6 p-5 text-center border-4 rounded-3xl ">
