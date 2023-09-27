@@ -27,8 +27,10 @@ export default function TherapistDashboardNav() {
         <ul className="flex justify-around text-center pl-16">
            <li className="">
              <Link to={`/therapist/${tid}/highrisk`}>
+              <div className="flex flex-col justify-center text-center">
                <i className="text-3xl hover:opacity-40"><FiFrown /></i>
              <p>High Risk</p>
+             </div>
              </Link>
              
            </li>

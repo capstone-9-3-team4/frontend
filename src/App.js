@@ -16,6 +16,7 @@ import PatientDashboard from "./Dashboards/PatientDashboard.js";
 import PatientDashboard2 from "./Dashboards/PatientDashboard2.js";
 import PatientProfileByTherapist from "./Components/Patients/PatientProfileByTherapist.js"
 import PatientJournalEntry from "./Components/Patients/PatientJournalEntry.js"
+import PatientInviteForm from "./Components/Patients/PatientInviteForm.js";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/invite" element={<PatientInviteForm />} />
           <Route path="/therapist/:tid/highrisk" element={<TherapistDashboardHR />} />
           <Route path="/therapist/:tid/mediumrisk" element={<TherapistDashboardMR />} />
           <Route path="/therapist/:tid/lowrisk" element={<TherapistDashboardLR />} />
