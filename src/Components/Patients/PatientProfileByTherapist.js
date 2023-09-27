@@ -59,12 +59,11 @@ function PatientProfileByTherapist() {
           <h2 className="text-2xl font-semibold mt-4">
             {patientProfile.first_name} {patientProfile.last_name}
           </h2>
-          <p><HiCake /></p><p> {formatDate(patientProfile.dob)}</p>
-          <p><HiUser/> {patientProfile.gender}</p>
-          <p><HiEnvelope />{patientProfile.email}</p>
-          <p><HiPhone /> {patientProfile.contact_number}</p>
-          <p><HiHome /> {patientProfile.address}</p>
-          <p> {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p>
+          <div className="flex space-x-1 items-center"><p><HiCake /></p><p> {formatDate(patientProfile.dob)}</p></div>
+          <div className="flex space-x-1 items-center"><p><HiUser/> </p><p>{patientProfile.gender}</p></div>
+          <div className="flex space-x-1 items-center"><p><HiEnvelope /></p><p>{patientProfile.email}</p></div>
+          <div className="flex space-x-1 items-center"><p><HiPhone /> </p><p>{patientProfile.contact_number}</p></div>
+          <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
         </div>
       </div>
 
