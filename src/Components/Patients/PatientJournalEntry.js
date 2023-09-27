@@ -15,7 +15,9 @@ export default function PatientJournalEntry () {
       axios
         .get(`${API}/therapist/${tid}/patients/${pid}/journals/unread/${jid}`)
         .then((response) => {
+           
             setJournal(response.data);
+            setNotes(response.data.therapist_notes)
         })
         .catch((e) => {
           console.warn("catch", e);
@@ -24,16 +26,21 @@ export default function PatientJournalEntry () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('hello')
+        setJournal(journal[`therapist_notes`] = notes)
+       
+        
         insertNotes();
+        
     };
 
-    const insertNotes = (notes) => {
-        console.log("hello")
+    const insertNotes = () => {
+        
         axios
-        .put(`${API}/journal/${jid}`, notes)
+        .put(`${API}/journal/${jid}`, journal)
         .then(() => {
-            // navigate(`${API}/therapist/${tid}/patients/${pid}`);
+            
+            navigate(`/therapist/${tid}/patient/${pid}`);
+            
         },
         (error) => console.error(error)
         )
@@ -41,14 +48,15 @@ export default function PatientJournalEntry () {
     };
 
     const handleTextChange = (event) => {
-        setNotes({ ...notes, [event.target.id]: event.target.value})
-        console.log(notes)
+        setNotes( event.target.value)
+       
     }
   
     return (
+
        
-       <div className={journal.analysis_score === 1 ? ('border-red-500') : journal.analysis_score === 2 ? ('border-yellow-500') : ('border-green-500') }>
-        <div className="justify-center mx-6 h-screen overflow-hidden border-4 rounded-3xl shadow-lg ">
+       <div className={journal.analysis_score === 1 ? ('border-red-500') : journal.analysis_score === 2 ? ('border-yellow-500') : ('border-green-500') }> 
+         <div className="justify-center mx-6 h-screen overflow-hidden border-4 rounded-3xl shadow-lg ">
             <div className="p-10 items-center">
                 <h1 className="text-center uppercase font-bold text-3xl text-dark-purple "> Patient Journal & Analysis </h1>
                 <div className="grid grid-cols-2 gap-6 mt-5">
@@ -70,29 +78,30 @@ export default function PatientJournalEntry () {
 
                 <div className="justify-center mt-10 mx-6 p-5 text-center border-4 rounded-3xl ">
                         <h2 className="font-bold  text-dark-green uppercase">Therapist Notes</h2>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <textarea 
-                                className="w-full px-5 bg-light-green rounded focus:outline-none focus:bg-white" 
+                                className="w-full px-5 bg-light-green rounded-2xl focus:outline-none focus:bg-white" 
                                 id="notes"
                                 type="text"
                                 name="notes"
                                 placeholder="My Notes..." 
                                 tabIndex="5"
-                                value={notes.notes}
+                                value={notes}
                                 onChange={handleTextChange}>
                             </textarea>
                         <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded"
                                 type="submit"
-                                onSubmit={handleSubmit}>Submit</button>
+                                >Submit</button>
                         </form>
 
                     </div>   
-                    <div class="rounded overflow-hidden shadow-lg">
+                    {/* <div className="rounded overflow-hidden shadow-lg">
                                 <p className="mx-5">{journal.therapist_notes} </p>
-                            </div> 
+                            </div>  */}
                 </div>
             
         </div>
         </div>
+       
     )
 }
