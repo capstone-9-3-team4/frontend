@@ -46,7 +46,7 @@ export default function PatientJournalEntry () {
         .put(`${API}/journal/${jid}`, journal)
         .then(() => {
             
-            navigate(`/therapist/${tid}/patient/${pid}`);
+            navigate(`/therapist/${tid}/patient/${pid}/unread`);
             
         },
         (error) => console.error(error)

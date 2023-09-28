@@ -10,8 +10,8 @@ import {  HiCake,
 
 const API = process.env.REACT_APP_API_URL;
 
-function PatientProfileByTherapist() {
-  const { tid, pid } = useParams();
+function PatientProfileByTherapistUnread({tid,pid}) {
+  // const { tid, pid } = useParams();
 
   const [patientProfile, setPatientProfile] = useState([]);
   const [upatientJournals, setUPatientJournals] = useState([]);
@@ -47,6 +47,7 @@ function PatientProfileByTherapist() {
 
   return (
     <>
+     
       <div className="flex gap-5 m-5">
         <div>
           <img
@@ -65,6 +66,7 @@ function PatientProfileByTherapist() {
           <div className="flex space-x-1 items-center"><p><HiPhone /> </p><p>{patientProfile.contact_number}</p></div>
           <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
         </div>
+        <h3 className="pt-20">Current Unread Journal Entries</h3>
       </div>
 
       <div className="m-6">
@@ -122,4 +124,4 @@ function PatientProfileByTherapist() {
   );
 }
 
-export default PatientProfileByTherapist;
+export default PatientProfileByTherapistUnread;

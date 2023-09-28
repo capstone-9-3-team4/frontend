@@ -21,7 +21,7 @@ const API = process.env.REACT_APP_API_URL;
 
 
 function PatientDashBoard2() {
-    const { userId } = useParams();
+    const { id } = useParams();
     const navegate = useNavigate()
 
   const [patientProfile, setPatientProfile] = useState([]);
@@ -31,7 +31,7 @@ function PatientDashBoard2() {
  
   useEffect(() => {
     axios
-      .get(`${API}/patients/user/${userId}`)
+      .get(`${API}/patients/${id}`)
       .then((response) => {
         
         setPatientProfile(response.data);
@@ -39,13 +39,14 @@ function PatientDashBoard2() {
       .catch((e) => {
         console.warn("catch", e);
       });
-  }, [userId]);
+  }, [id]);
 
 
   
 
   const newjournal = () => {
-     navegate(`/patient/${userId}/dashboard`)
+    
+     navegate(`/patient/${id}/dashboard`)
   }
 
   const formatDate = (dateString) => {
@@ -120,7 +121,7 @@ function PatientDashBoard2() {
                                 <img src={`${patientProfile.profile_picture}`} alt="PatientPic"
                                   className="w-48 h-48 rounded-full mx-auto shadow-md bg-dark-green p-1" />
                                  <div>{`${patientProfile.email}`}</div>
-                                 <Link to={`/patient/${userId}/dashboard2`} className="text-dark-green hover:text-light-green">Edit</Link>
+                                 <Link to={`/patient/${id}/dashboard2`} className="text-dark-green hover:text-light-green">Edit</Link>
                                 
                              </div>
 
