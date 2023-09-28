@@ -18,7 +18,8 @@ export default function PatientJournalEntry () {
            
             setJournal(response.data);
             setNotes(response.data.therapist_notes)
-            console.log(journal)
+            console.log(response.data)
+           
         })
         .catch((e) => {
           console.warn("catch", e);
@@ -78,7 +79,7 @@ export default function PatientJournalEntry () {
                     <div className="justify-center mx-6 p-5 text-center border-4 rounded-3xl ">
                         <h2 className="font-bold  text-dark-green uppercase text-center">AI Analysis & Score - {journal.analysis_score}</h2>
                         <div>
-                            <p className="mx-5">Lorem ipsum is used to help designers plan out where the content will sit, without needing to wait for the content to be written and approved. It's also used to create a natural looking block of text that doesn't distract from the layout. </p>
+                            <p className="mx-5">{journal.ai_response} </p>
                     </div>
                     </div>
                 </div>

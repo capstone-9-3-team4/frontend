@@ -59,7 +59,7 @@ export default function TherapistDashboardNav() {
               <p>Patient Profiles</p></Link>
            </li>
            <li><SearchBar  /></li>
-          <li><AuthDetails /></li>
+          {/* <li><AuthDetails /></li> */}
         </ul>
       </div>
     </nav>
