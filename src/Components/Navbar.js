@@ -47,7 +47,7 @@ export default function Navbar() {
           
           {authUser ? 
               <li className="flex flex-row justify-center">
-               <button className="px-6 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded-3xl"  onClick={userSignOut}>
+               <button className="px-4 py-1 text-white bg-dark-blue hover:bg-dark-purple rounded"  onClick={userSignOut}>
                 Log Out
                </button>
              </li> 
