@@ -1,8 +1,38 @@
 import { Link } from "react-router-dom";
 import Logo from "../../src/images/logo.png"
 
+import { useState, useEffect} from "react";
+import { auth } from "./firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Navbar() {
+
+  const [authUser, setAuthUser] = useState(null);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+      const listen = onAuthStateChanged(auth, (user) => {
+          if (user) {
+              setAuthUser(user);
+          } else {
+              setAuthUser(null);
+          }
+      });
+
+      return () => {
+          listen();
+      }
+  }, []);
+
+  const userSignOut = () => {
+      signOut(auth).then(() => {
+      navigate("/")   
+      }).catch(error => console.log(error));
+  };
+
+
   return (
     <nav className="bg-white p-2">
       <div className="container mx-auto flex justify-between items-center">
@@ -15,15 +45,25 @@ export default function Navbar() {
             <Link to={"/"} className="hover:text-dark-purple">About</Link>
           </li>
           
-          <li>
-          <Link to={"/login"} className="px-4 py-1 text-white  bg-dark-blue hover:bg-dark-purple rounded">
-                            Log In</Link>
-          </li>
-          <li>
-          <Link to={"/signup"} className="px-4 py-1 text-white bg-dark-blue hover:bg-dark-purple rounded"> Sign Up</Link>
-          </li>
-          <li>
-          </li>
+          {authUser ? 
+              <li className="flex flex-row justify-center">
+               <button className="px-6 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded-3xl"  onClick={userSignOut}>
+                Log Out
+               </button>
+             </li> 
+            : <>
+              <li>
+                 <Link to={"/login"} className="px-4 py-1 text-white  bg-dark-blue hover:bg-dark-purple rounded">
+                              Log In</Link>
+              </li>
+              <li>
+                 <Link to={"/signup"} className="px-4 py-1 text-white bg-dark-blue hover:bg-dark-purple rounded"> Sign Up</Link>
+              </li>
+              </>
+            }
+         
+         
+         
         </ul>
        
       
