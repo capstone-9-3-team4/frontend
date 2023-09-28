@@ -9,6 +9,8 @@ export default function LogIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userId, setUserId] = useState('');
+  const [loginmsg, setLoginmsg] = useState('')
+  //const [therapistId, setTherapistId] = useState()
   const [userObj, setUserObj] = useState({});
   const navigate = useNavigate();
 
@@ -18,8 +20,8 @@ export default function LogIn() {
      
           axios.get(`${process.env.REACT_APP_API_URL}/users/${userId}`)
               .then(response => {
-                  //console.log("hello1")
-                
+                  
+                  console.log(response.data)
                   setUserObj(response.data);
                  
 
@@ -35,18 +37,37 @@ export default function LogIn() {
               setUserId(userCredential.user.uid);
           })
           .catch((error) => {
-              console.log(error);
+             // console.log(error);
+             setLoginmsg('pls check your email and pswd')
+              
           })
   };
-  useEffect(() => {
-      // Navigate based on user role
-      if (userObj.role === "T") {
+  // useEffect(() => {
+  //     // Navigate based on user role
+      
+
+  //       axios.get(`${process.env.REACT_APP_API_URL}/users/therapist/${userId}`)
+  //             .then(thera => {
+  //                 
+                
+  //                 setTherapistId(thera.data);
+                 
+
+  //             })
+  //             .catch(error => console.log(error))
         
-          navigate(`/therapist/${userId}/highrisk`);
-      } else if (userObj.role === "P") {
-          navigate(`/patient/${userId}/dashboard2`);
-      }
-  }, [userObj, userId,navigate]);
+  // }, [userId]);
+
+   useEffect(() => {
+    if (userObj.role === "T") {
+      
+      navigate(`/therapist/${userObj.t_id}/highrisk`);
+  } else if (userObj.role === "P") {
+      console.log(userObj.p_id)
+      navigate(`/patient/${userObj.p_id}/dashboardProfile`);
+  }
+
+   }, [userObj,navigate]);
 
 
     return (
@@ -74,6 +95,7 @@ export default function LogIn() {
                         <div className="mt-4 items-center flex justify-between">
                           <button className="px-4 py-1 text-white  bg-dark-blue hover:bg-dark-purple rounded"   
                           type="submit">Log In</button>
+                          <h2>{loginmsg}</h2>
 
                         {/* <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-dark-blue hover:text-blue"
                           href="#">Forgot Password?</a> */}

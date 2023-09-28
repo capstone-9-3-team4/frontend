@@ -12,7 +12,7 @@ import { OpenAI} from 'langchain/llms/openai';
   
 
   export default function PatientDashboard() {
-    const { userId } = useParams();
+    const { id } = useParams();
      
     const navegate = useNavigate()
 
@@ -37,7 +37,7 @@ import { OpenAI} from 'langchain/llms/openai';
       const [patient, setPatient] = useState({});
       useEffect(() => {
         axios
-            .get(`${API}/patients/user/${userId}`)
+            .get(`${API}/patients/${id}`)
          
             .then((response) => {
                 
@@ -48,7 +48,7 @@ import { OpenAI} from 'langchain/llms/openai';
 
                 console.warn("catch", e);
             });
-    }, [userId]);
+    }, [id]);
     
     
 
@@ -56,7 +56,7 @@ import { OpenAI} from 'langchain/llms/openai';
     
   const handleclick = () => {
       
-     navegate(`/patient/${userId}/dashboard2`)
+     navegate(`/patient/${id}/dashboardProfile`)
   }
     
     
@@ -78,7 +78,7 @@ import { OpenAI} from 'langchain/llms/openai';
 
     }
    if (entryText) {
-    const resp = await openai.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate help for their mental health state, 2 being the patient is in an ok mental health state and 3 being the patient has a good mental health state), please use profesional medical terminology and evaluate the entry as a psychiatrist, response with only one number and no more than 2 paragraph`)
+    const resp = await openai.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate help for their mental health state, 2 being the patient is in an ok mental health state and 3 being the patient has a good mental health state), please use profesional medical terminology and evaluate the entry as a psychiatrist,avoid using phrases like 'it appears that the patient is in an overall okay mental health state' response with only one number and no more than 2 paragraph`)
        
        if ( resp.includes('1')) {
         journalEntry.analysis_score = 1;
@@ -93,7 +93,7 @@ import { OpenAI} from 'langchain/llms/openai';
     axios
         .post(`${API}/journal` , journalEntry)
         .then(() => {
-          navegate (`/patient/${userId}/dashboard2`);
+          navegate (`/patient/${id}/dashboardProfile`);
         },
         (error) => console.error(error)
         )
@@ -116,7 +116,7 @@ import { OpenAI} from 'langchain/llms/openai';
       <div className="text-center mt-5">
       <form onSubmit={handleSubmit}>
         <textarea
-          className="w-full px-5 bg-light-green rounded focus:outline-none focus:bg-white" 
+          className="w-full px-5 bg-light-blue rounded focus:outline-none focus:bg-white" 
           rows="4"
           cols="50"
           placeholder="Write your journal entry here..."
@@ -126,8 +126,8 @@ import { OpenAI} from 'langchain/llms/openai';
         <br />
          <div className=" flex flex-row justify-around">
             
-             <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded-3xl " onClick={handleclick} >Cancel</button>
-             <button className="px-4 py-1 text-white font-light tracking-wider bg-dark-green hover:bg-dark-purple rounded-3xl " type="submit" >Submit Journal Entry</button>
+             <button className="px-4 py-1 text-white bg-dark-blue hover:bg-dark-purple rounded " onClick={handleclick} >Cancel</button>
+             <button className="px-4 py-1 text-white bg-dark-blue hover:bg-dark-purple rounded " type="submit" >Submit Journal Entry</button>
             
         
           </div>

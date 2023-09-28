@@ -11,7 +11,7 @@ export default function PatientJournalCards () {
 
     const { tid } = useParams();
     const [patientAtRisk, setPatientAtRisk] = useState([]);
-    
+    console.log("here ",tid)
    
     useEffect(() => {
         axios
