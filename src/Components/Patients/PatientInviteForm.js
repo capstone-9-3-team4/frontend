@@ -1,3 +1,4 @@
+import PatientAddForm from "./PatientAddForm";
 
 export default function PatientInviteForm() {
     
@@ -14,7 +15,10 @@ export default function PatientInviteForm() {
                 <button className="px-4 py-1 text-white font-light cursor-pointer tracking-wider bg-dark-green hover:bg-dark-purple rounded">Send Invite</button>
         
             </div>
-            
+            <div>
+            <PatientAddForm />
+            </div>
         </div>
+        
     );
 }
