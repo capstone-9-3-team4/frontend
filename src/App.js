@@ -17,15 +17,17 @@ import PatientDashboard2 from "./Dashboards/PatientDashboard2.js";
 import PatientProfileByTherapist from "./Components/Patients/PatientProfileByTherapist.js"
 import PatientJournalEntry from "./Components/Patients/PatientJournalEntry.js"
 import PatientInviteForm from "./Components/Patients/PatientInviteForm.js";
+import LogIn from "./Components/LogIn.js";
 
 function App() {
   return (
     <div>
-      <Navbar />
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/login" element={<LogIn />} />
           <Route path="/invite" element={<PatientInviteForm />} />
           <Route path="/therapist/:tid/highrisk" element={<TherapistDashboardHR />} />
           <Route path="/therapist/:tid/mediumrisk" element={<TherapistDashboardMR />} />
