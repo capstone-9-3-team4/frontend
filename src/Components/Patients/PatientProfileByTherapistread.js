@@ -70,20 +70,20 @@ function PatientProfileByTherapistread({tid,pid}) {
       </div>
 
       <div className="m-6">
-        <table className="w-full border-collapse border border-dark-green">
+        <table className="w-full border-collapse border border-dark-blue">
           <thead>
-            <tr className="bg-dark-green text-white">
-              <th className="border border-light-green p-2">Analysis Score</th>
-              <th className="border border-light-green p-2">Entry Date</th>
-              <th className="border border-light-green p-2">Journal Entry</th>
+            <tr className="bg-dark-blue text-white">
+              <th className="border border-light-blue p-2">Analysis Score</th>
+              <th className="border border-light-blue p-2">Entry Date</th>
+              <th className="border border-light-blue p-2">Journal Entry</th>
             </tr>
           </thead>
           <tbody>
             {upatientJournals.map((x) => {
               return (
                 <React.Fragment key={x.id}>
-                  <tr className="hover:bg-light-green">
-                    <td className="border border-dark-green p-2">
+                  <tr className="hover:bg-light-blue">
+                    <td className="border border-dark-blue p-2">
                       {x.analysis_score === 1 ? (
                         <Link 
                           to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
@@ -107,10 +107,10 @@ function PatientProfileByTherapistread({tid,pid}) {
                         </Link>
                       )}
                     </td>
-                    <td className="border border-dark-green p-2">
+                    <td className="border border-dark-blue p-2">
                       {formatDate(x.entry_date)}
                     </td>
-                    <td className="border border-dark-green p-2" colSpan="2">
+                    <td className="border border-dark-blue p-2" colSpan="2">
                       {x.journal_entry || "No journal entry available."}
                     </td>
                   </tr>
