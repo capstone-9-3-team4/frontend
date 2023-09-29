@@ -66,7 +66,7 @@ function PatientProfileByTherapistread({tid,pid}) {
           <div className="flex space-x-1 items-center"><p><HiPhone /> </p><p>{patientProfile.contact_number}</p></div>
           <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
         </div>
-        <h3 className="pt-20">Current Unread Journal Entries</h3>
+        <h3 className="pt-20">Current read Journal Entries</h3>
       </div>
 
       <div className="m-6">
