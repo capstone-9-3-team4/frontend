@@ -9,6 +9,7 @@ import Home from './Pages/Home.js'
 //COMPONENTS
 import Navbar from "./Components/Navbar.js"
 import SignUpForm from "./Components/SignUpForm.js";
+import TherapistDashboardALL from "./Dashboards/TherapistDashboardAll.js"
 import TherapistDashboardHR from "./Dashboards/TherapistDashboardHR.js";
 import TherapistDashboardMR from "./Dashboards/TherapistDashboardMR.js";
 import TherapistDashboardLR from "./Dashboards/TherapistDashboardLR.js";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/therapist/:tid/patients" element={<TherapistDashboardALL />} />
           <Route path="/invite" element={<PatientInviteForm />} />
           <Route path="/therapist/:tid/highrisk" element={<TherapistDashboardHR />} />
           <Route path="/therapist/:tid/mediumrisk" element={<TherapistDashboardMR />} />
