@@ -26,7 +26,9 @@ export default function TherapistDashboardNav() {
     ? 'highrisk'
     : location.pathname.includes('mediumrisk')
     ? 'mediumrisk'
-    : 'lowrisk';
+    : location.pathname.includes('lowrisk')
+    ? 'lowrisk'
+    : 'patientprofiles'
 
   return (
     <nav className="m-2">
@@ -65,8 +67,8 @@ export default function TherapistDashboardNav() {
             </Link>
           </li>
           <li>
-            <Link to="/">
-              <div className={`flex flex-col justify-center text-center ${activeRoute === 'patientprofiles' ? 'text-purple-500' : 'hover:opacity-40'}`}>
+            <Link to={`/therapist/${tid}/patients`}>
+              <div className={`flex flex-col justify-center text-center ${activeRoute === 'patientprofiles' ? 'text-dark-blue' : 'hover:opacity-40'}`}>
                 <i className="text-3xl"><SlDocs /></i>
                 <p>Patient Profiles</p>
               </div>
