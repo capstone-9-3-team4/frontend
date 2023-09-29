@@ -3,10 +3,11 @@ import SearchBar from "./SearchBar.js";
 import { useParams,Link } from "react-router-dom";
 import { GrEmoji } from "react-icons/gr";
 
-import { FiFrown,
-  FiMeh,
-  FiSmile
- } from "react-icons/fi";
+import { BiArrowBack} from "react-icons/bi";
+
+ import { CiRead,
+  CiUnread
+ } from "react-icons/ci";
 
 import { 
   SlUserFollow,
@@ -28,7 +29,7 @@ export default function TherapistDashboardNavGrid({tid,pid}) {
            <li className="">
              <Link to={`/therapist/${tid}/highrisk`}>
               <div className="flex flex-col justify-center text-center">
-               <i className="text-3xl hover:opacity-40"><FiFrown /></i>
+               <i className="text-3xl hover:opacity-40"><BiArrowBack /></i>
              <p>Back to Profiles</p>
              </div>
              </Link>
@@ -36,13 +37,13 @@ export default function TherapistDashboardNavGrid({tid,pid}) {
            </li>
            <li>
              <Link to={`/therapist/${tid}/patient/${pid}/unread`}>
-                <i className="text-3xl hover:opacity-40"><FiMeh /></i>
+                <i className="text-3xl hover:opacity-40"><CiUnread /></i>
                 <p>Unread Journal Entries</p>
               </Link>
            </li>
            <li>
              <Link to={`/therapist/${tid}/patient/${pid}/read`}>
-                <i className="text-3xl hover:opacity-40"><FiSmile /></i>
+                <i className="text-3xl hover:opacity-40"><CiRead /></i>
               <p>Read Journal Entries</p>
               </Link>
               
