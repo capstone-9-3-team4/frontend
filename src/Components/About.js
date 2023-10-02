@@ -8,6 +8,7 @@ function App() {
     { id: 3, name: 'Person 3', imageUrl: 'image_url_3.jpg' },
     { id: 4, name: 'Person 4', imageUrl: 'image_url_4.jpg' },
     { id: 5, name: 'Person 5', imageUrl: 'image_url_5.jpg' },
+  
   ];
 
   const [selectedPerson, setSelectedPerson] = useState(null);
