@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import {  HiCake,
           HiHome,
           HiPhone,
@@ -53,7 +53,7 @@ function PatientProfileByTherapistUnread({tid,pid}) {
           <img
             src={patientProfile.profile_picture}
             alt={`${patientProfile.first_name} ${patientProfile.last_name}`}
-            className="w-48 h-48 rounded-full mx-auto shadow-md bg-dark-blue p-1"
+            className="w-48 h-48 rounded-full mx-auto shadow-md bg-light-blue  hover:bg-dark-blue p-1"
           />
         </div>
         <div>
@@ -66,7 +66,7 @@ function PatientProfileByTherapistUnread({tid,pid}) {
           <div className="flex space-x-1 items-center"><p><HiPhone /> </p><p>{patientProfile.contact_number}</p></div>
           <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
         </div>
-        <h3 className="pt-20">Current Unread Journal Entries</h3>
+        
       </div>
 
       <div className="m-6">

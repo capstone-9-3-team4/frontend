@@ -1,7 +1,7 @@
 //import AuthDetails from "./AuthDetails";
-import SearchBar from "./SearchBar.js";
-import { useParams,Link } from "react-router-dom";
-import { GrEmoji } from "react-icons/gr";
+//import SearchBar from "./SearchBar.js";
+import { Link,useLocation } from "react-router-dom";
+//import { GrEmoji } from "react-icons/gr";
 
 import { BiArrowBack} from "react-icons/bi";
 
@@ -9,17 +9,18 @@ import { BiArrowBack} from "react-icons/bi";
   CiUnread
  } from "react-icons/ci";
 
-import { 
-  SlUserFollow,
-  SlDocs, 
- } from "react-icons/sl";
+// import { 
+//   SlUserFollow,
+//   SlDocs, 
+//  } from "react-icons/sl";
 //import PatientInviteForm from "./Patients/PatientInviteForm";
 
  
 export default function TherapistDashboardNavGrid({tid,pid}) {
+  const location = useLocation();
   
+  const activeRoute = location.pathname.includes('unread')? ('unread'): ('read')
   
-  //const { tid } = useParams();
   
 
   return (
@@ -37,14 +38,14 @@ export default function TherapistDashboardNavGrid({tid,pid}) {
            </li>
            <li>
              <Link to={`/therapist/${tid}/patient/${pid}/unread`}>
-                <i className="text-3xl hover:opacity-40"><CiUnread /></i>
-                <p>Unread Journal Entries</p>
+                <i className="text-3xl hover:opacity-40" ><CiUnread className={`${activeRoute ==='unread' ? "text-dark-blue " : null}`}/></i>
+                <p className={`text-lg hover:opacity-40 ${activeRoute ==='unread' ? 'text-bold underline text-dark-blue text-4xl ' : null}`}>Unread Journal Entries</p>
               </Link>
            </li>
            <li>
              <Link to={`/therapist/${tid}/patient/${pid}/read`}>
-                <i className="text-3xl hover:opacity-40"><CiRead /></i>
-              <p>Read Journal Entries</p>
+                <i className="text-3xl hover:opacity-40"><CiRead className={`${activeRoute ==='read' ? "text-dark-blue" : null}`} /></i>
+                <p className={`text-lg hover:opacity-40 ${activeRoute ==='read' ? 'text-bold underline text-dark-blue text-4xl' : null}`}>Read Journal Entries</p>
               </Link>
               
            </li>
