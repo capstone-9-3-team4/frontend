@@ -1,8 +1,8 @@
 import AuthDetails from "./AuthDetails";
 import SearchBar from "./SearchBar.js";
 import { useParams,Link,useLocation } from "react-router-dom";
-import { GrEmoji } from "react-icons/gr";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { FiFrown,
   FiMeh,
   FiSmile
@@ -11,16 +11,28 @@ import { FiFrown,
 import { 
   SlUserFollow,
   SlDocs, 
- } from "react-icons/sl";
-import PatientInviteForm from "./Patients/PatientInviteForm";
+  SlSettings,
+ } from "react-icons/sl"; 
 
- 
-
+const API = process.env.REACT_APP_API_URL;
 
 export default function TherapistDashboardNav() {
   const { tid } = useParams();
   const location = useLocation();
-  
+  const [therapistProfile, setTherapistProfile] = useState([])
+ 
+  useEffect(() => {
+    axios
+      .get(`${API}/therapist/${tid}`)
+      .then((response) => {
+        
+        setTherapistProfile(response.data);
+      })
+      .catch((e) => {
+        console.warn("catch", e);
+      });
+  }, [tid]);
+
   // Determine the active route based on the pathname
   const activeRoute = location.pathname.includes('highrisk')
     ? 'highrisk'
@@ -28,7 +40,8 @@ export default function TherapistDashboardNav() {
     ? 'mediumrisk'
     : location.pathname.includes('lowrisk')
     ? 'lowrisk'
-    : 'patientprofiles'
+    : 'paprofiles'
+  
 
   return (
     <nav className="m-2">
@@ -62,19 +75,27 @@ export default function TherapistDashboardNav() {
             <Link to="/invite">
               <div className={`flex flex-col justify-center text-center ${activeRoute === 'invite' ? 'text-blue-500' : 'hover:opacity-40'}`}>
                 <i className="text-3xl"><SlUserFollow /></i>
-                <p>Send Invite</p>
+                <p>Add Patient</p>
               </div>
             </Link>
           </li>
           <li>
             <Link to={`/therapist/${tid}/patients`}>
-              <div className={`flex flex-col justify-center text-center ${activeRoute === 'patientprofiles' ? 'text-dark-blue' : 'hover:opacity-40'}`}>
+              <div className={`flex flex-col justify-center text-center ${activeRoute === 'paprofiles' ? 'text-dark-blue' : 'hover:opacity-40'}`}>
                 <i className="text-3xl"><SlDocs /></i>
                 <p>Patient Profiles</p>
               </div>
             </Link>
           </li>
           <li><SearchBar /></li>
+          <li>
+            <Link to="/TherapistProfile">
+              <div className={`flex flex-col justify-center text-center`}>
+                <i className="text-3xl"><SlSettings /></i>
+                <p className="text-dark-blue">Hello, Dr. {therapistProfile.last_name} </p>
+              </div>
+            </Link>
+          </li>
           {/* <li><AuthDetails /></li> */}
         </ul>
       </div>

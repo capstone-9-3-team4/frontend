@@ -20,8 +20,11 @@ import PatientEntriesReadGrid from "./Components/PatientEntriesReadGrid.js"
 import PatientJournalEntry from "./Components/Patients/PatientJournalEntry.js";
 import PatientInviteForm from "./Components/Patients/PatientInviteForm.js";
 import LogIn from "./Components/LogIn.js";
+import TherapistProfile from "./Components/TherapistProfile.js";
 
 function App() {
+
+
   return (
     <div>
       <Router>
@@ -32,6 +35,7 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/therapist/:tid/patients" element={<TherapistDashboardALL />} />
           <Route path="/invite" element={<PatientInviteForm />} />
+          <Route path="/TherapistProfile" element={<TherapistProfile />} />
           <Route path="/therapist/:tid/highrisk" element={<TherapistDashboardHR />} />
           <Route path="/therapist/:tid/mediumrisk" element={<TherapistDashboardMR />} />
           <Route path="/therapist/:tid/lowrisk" element={<TherapistDashboardLR />} />
