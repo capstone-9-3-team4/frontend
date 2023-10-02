@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import PatientJournalEntryRead from "./PatientJournalEntryRead.js"
+//import { useParams, Link } from "react-router-dom";
 import {  HiCake,
           HiHome,
           HiPhone,
@@ -15,6 +16,12 @@ function PatientProfileByTherapistread({tid,pid}) {
 
   const [patientProfile, setPatientProfile] = useState([]);
   const [upatientJournals, setUPatientJournals] = useState([]);
+  const [journalentryread, setJournalEntryRead] = useState({})
+
+  const datos = {
+    mostrar: "",
+    je_id: 0,
+  }
 
   useEffect(() => {
     axios
@@ -45,28 +52,42 @@ function PatientProfileByTherapistread({tid,pid}) {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
+  const handdleClick = (jid) => {
+    datos.mostrar = "show";
+    datos.je_id = jid;
+    setJournalEntryRead(datos)
+  }
+
   return (
     <>
      
-      <div className="flex gap-5 m-5">
+      <div className="flex  flex-row justify-start gap-5 m-5">
         <div>
           <img
             src={patientProfile.profile_picture}
             alt={`${patientProfile.first_name} ${patientProfile.last_name}`}
-            className="w-48 h-48 rounded-full mx-auto shadow-md bg-dark-green p-1"
+            className="w-48 h-48 rounded-full mx-auto shadow-md bg-light-blue p-1 hover:bg-dark-blue"
           />
         </div>
-        <div>
-          <h2 className="text-2xl font-semibold mt-4">
-            {patientProfile.first_name} {patientProfile.last_name}
-          </h2>
-          <div className="flex space-x-1 items-center"><p><HiCake /></p><p> {formatDate(patientProfile.dob)}</p></div>
-          <div className="flex space-x-1 items-center"><p><HiUser/> </p><p>{patientProfile.gender}</p></div>
-          <div className="flex space-x-1 items-center"><p><HiEnvelope /></p><p>{patientProfile.email}</p></div>
-          <div className="flex space-x-1 items-center"><p><HiPhone /> </p><p>{patientProfile.contact_number}</p></div>
-          <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
+        <div className="flex grow justify-between" >
+          <div className="px-5">
+            <h2 className="text-2xl font-semibold mt-4">
+              {patientProfile.first_name} {patientProfile.last_name}
+            </h2>
+           <div className="flex space-x-1 items-center"><p><HiCake /></p><p> {formatDate(patientProfile.dob)}</p></div>
+           <div className="flex space-x-1 items-center"><p><HiUser/> </p><p>{patientProfile.gender}</p></div>
+           <div className="flex space-x-1 items-center"><p><HiEnvelope /></p><p>{patientProfile.email}</p></div>
+           <div className="flex space-x-1 items-center"><p><HiPhone /> </p><p>{patientProfile.contact_number}</p></div>
+           <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
+         </div>
+         
+       
+        
         </div>
-        <h3 className="pt-20">Current read Journal Entries</h3>
+      </div>
+      <div>
+        {journalentryread.mostrar === "show" ? (<PatientJournalEntryRead journalentryread={journalentryread} setJournalEntryRead={setJournalEntryRead}/>): null}
+       
       </div>
 
       <div className="m-6">
@@ -85,26 +106,17 @@ function PatientProfileByTherapistread({tid,pid}) {
                   <tr className="hover:bg-light-blue">
                     <td className="border border-dark-blue p-2">
                       {x.analysis_score === 1 ? (
-                        <Link 
-                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-red-500 underline"
-                        >
-                          High
-                        </Link>
+                        
+                        <button className="text-red-500 underline" onClick={() => handdleClick(x.id)} >Hight</button>  
+                      
                       ) : x.analysis_score === 2 ? (
-                        <Link
-                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-yellow-500 underline"
-                        >
-                          Medium
-                        </Link>
+                      
+                         <button className="text-yellow-500 underline" onClick={() => handdleClick(x.id)}>Medium</button> 
+                      
                       ) : (
-                        <Link
-                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-green-500 underline"
-                        >
-                          Low
-                        </Link>
+                       
+                        <button className="text-green-500 underline" onClick={() => handdleClick(x.id)}>Low</button> 
+                     
                       )}
                     </td>
                     <td className="border border-dark-blue p-2">
