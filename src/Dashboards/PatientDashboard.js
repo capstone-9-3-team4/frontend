@@ -78,7 +78,7 @@ import { OpenAI} from 'langchain/llms/openai';
 
     }
    if (entryText) {
-    const resp = await openai.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate help for their mental health state, 2 being the patient is in an ok mental health state and 3 being the patient has a good mental health state), please use profesional medical terminology and evaluate the entry as a psychiatrist,avoid using phrases like 'it appears that the patient is in an overall okay mental health state' response with only one number and no more than 2 paragraph`)
+    const resp = await openai.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate medical attention for their mental health state, 2 being the patient is in a concern mental health state and 3 being the patient has a stable mental health state), please use profesional medical terminology and evaluate the entry as a mental health counselor,avoid using phrases like 'it appears that the patient is in an overall okay mental health state' response with only one number and no more than 2 paragraph`)
        
        if ( resp.includes('1')) {
         journalEntry.analysis_score = 1;
