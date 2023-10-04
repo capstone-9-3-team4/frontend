@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {  Link } from "react-router-dom";
+import PatientJournalEntryUnread from "./PatientJournalEntryUnread.js"
+// import {  Link } from "react-router-dom";
 import {  HiCake,
           HiHome,
           HiPhone,
@@ -15,22 +16,35 @@ function PatientProfileByTherapistUnread({tid,pid}) {
 
   const [patientProfile, setPatientProfile] = useState([]);
   const [upatientJournals, setUPatientJournals] = useState([]);
+  const [journalentryunread, setJournalEntryUnRead] = useState({})
+  const [totalhr,setTotalhr] = useState(0);
+  const [totalJE,setTotalJE] = useState(0);
+ 
+
+  const datos = {
+    mostrar: "",
+    je_id: 0,
+  }
 
   useEffect(() => {
     axios
       .get(`${API}/therapist/${tid}/patients/${pid}`)
       .then((response) => {
-        
         setPatientProfile(response.data);
+       
       })
       .catch((e) => {
         console.warn("catch", e);
       });
   }, [tid, pid]);
 
+  // useEffect(()=> {
+  //    window.location.reload(false)
+  // },[])
+
   useEffect(() => {
     axios
-      .get(`${API}/therapist/${tid}/patients/${pid}/journals/unread`)
+      .get(`${API}/therapist/${tid}/patients/${pid}/journals/`)
       .then((journals) => {
         
         setUPatientJournals(journals.data);
@@ -40,10 +54,30 @@ function PatientProfileByTherapistUnread({tid,pid}) {
       });
   }, [tid, pid]);
 
+   let hr = 0
+   let allJE = upatientJournals.length;
+   for (let i = 0; i < upatientJournals.length; i++) {
+     if (upatientJournals[i].analysis_score === 1) {
+          hr++
+     }
+   }
+ 
+  useEffect (()=> {
+    setTotalhr(hr)
+    setTotalJE(allJE)
+  },[hr,allJE])
+
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
+
+
+  const handdleClick = (jid) => {
+    datos.mostrar = "show";
+    datos.je_id = jid;
+    setJournalEntryUnRead(datos)
+  }
 
   return (
     <>
@@ -66,7 +100,21 @@ function PatientProfileByTherapistUnread({tid,pid}) {
           <div className="flex space-x-1 items-center"><p><HiPhone /> </p><p>{patientProfile.contact_number}</p></div>
           <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
         </div>
+        <div>
+          <h2>Total Journal Entries</h2>
+          <h3>{totalJE}</h3>
+        </div>
+        <div>
+          <h2>Total High Risk JE</h2>
+          <h3>{totalhr}</h3>
+        </div>
+
         
+      </div>
+
+      <div>
+        {journalentryunread.mostrar === "show" ? (<PatientJournalEntryUnread  journalentryunread={journalentryunread} setJournalEntryUnRead={setJournalEntryUnRead}/>): null}
+       
       </div>
 
       <div className="m-6">
@@ -79,32 +127,32 @@ function PatientProfileByTherapistUnread({tid,pid}) {
             </tr>
           </thead>
           <tbody>
-            {upatientJournals.map((x) => {
+            {upatientJournals.filter((unrd) => unrd.read === false).map((x) => {
               return (
                 <React.Fragment key={x.id}>
                   <tr className="hover:bg-light-blue">
                     <td className="border border-dark-blue p-2">
                       {x.analysis_score === 1 ? (
-                        <Link 
-                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-red-500 underline"
-                        >
-                          High
-                        </Link>
+                        // <Link 
+                        //   to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
+                        //   className="text-red-500 underline"
+                        // >
+                        <button className="text-red-500 underline" onClick={() => handdleClick(x.id)} >High</button> 
+                        // </Link>
                       ) : x.analysis_score === 2 ? (
-                        <Link
-                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-yellow-500 underline"
-                        >
-                          Medium
-                        </Link>
+                        // <Link
+                        //   to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
+                        //   className="text-yellow-500 underline"
+                        // >
+                        <button className="text-yellow-500 underline" onClick={() => handdleClick(x.id)} >Medium</button> 
+                        // </Link>
                       ) : (
-                        <Link
-                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-green-500 underline"
-                        >
-                          Low
-                        </Link>
+                        // <Link
+                        //   to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
+                        //   className="text-green-500 underline"
+                        // >
+                        <button className="text-green-500 underline" onClick={() => handdleClick(x.id)} >Low</button> 
+                        // </Link>
                       )}
                     </td>
                     <td className="border border-dark-blue p-2">
