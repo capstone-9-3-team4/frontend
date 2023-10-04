@@ -111,7 +111,7 @@ import { OpenAI} from 'langchain/llms/openai';
     
 
   return (
-    <div className="justify-center mx-6 h-screen p-10 overflow-hidden border-4 rounded-3xl shadow-lg ">
+    <div className="justify-center mx-6 p-10 overflow-hidden">
       <PatientDashBoardNav />
       <div className="text-center mt-5">
       <form onSubmit={handleSubmit}>
