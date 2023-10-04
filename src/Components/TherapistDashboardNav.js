@@ -1,4 +1,4 @@
-import AuthDetails from "./AuthDetails";
+//import AuthDetails from "./AuthDetails";
 import SearchBar from "./SearchBar.js";
 import { useParams,Link,useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -89,12 +89,12 @@ export default function TherapistDashboardNav() {
           </li>
           <li><SearchBar /></li>
           <li>
-            <Link to="/TherapistProfile">
+            {/* <Link to="/TherapistProfile"> */}
               <div className={`flex flex-col justify-center text-center`}>
                 <i className="text-3xl"><SlSettings /></i>
                 <p className="text-dark-blue">Hello, Dr. {therapistProfile.last_name} </p>
               </div>
-            </Link>
+            {/* </Link> */}
           </li>
           {/* <li><AuthDetails /></li> */}
         </ul>
