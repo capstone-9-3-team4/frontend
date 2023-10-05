@@ -37,7 +37,7 @@ function PatientProfileByTherapistread({tid,pid}) {
 
   useEffect(() => {
     axios
-      .get(`${API}/therapist/${tid}/patients/${pid}/journals/read`)
+      .get(`${API}/therapist/${tid}/patients/${pid}/journals/`)
       .then((journals) => {
         
         setUPatientJournals(journals.data);
@@ -69,7 +69,7 @@ function PatientProfileByTherapistread({tid,pid}) {
             className="w-48 h-48 rounded-full mx-auto shadow-md bg-light-blue p-1 hover:bg-dark-blue"
           />
         </div>
-        <div className="flex grow justify-between" >
+        <div className="flex justify-between" >
           <div className="px-5">
             <h2 className="text-2xl font-semibold mt-4">
               {patientProfile.first_name} {patientProfile.last_name}
@@ -100,14 +100,15 @@ function PatientProfileByTherapistread({tid,pid}) {
             </tr>
           </thead>
           <tbody>
-            {upatientJournals.map((x) => {
+
+            {upatientJournals.filter((rd) => rd.read === true).map((x) => {
               return (
                 <React.Fragment key={x.id}>
                   <tr className="hover:bg-light-blue">
                     <td className="border border-dark-blue p-2">
                       {x.analysis_score === 1 ? (
                         
-                        <button className="text-red-500 underline" onClick={() => handdleClick(x.id)} >Hight</button>  
+                        <button className="text-red-500 underline" onClick={() => handdleClick(x.id)} >High</button>  
                       
                       ) : x.analysis_score === 2 ? (
                       

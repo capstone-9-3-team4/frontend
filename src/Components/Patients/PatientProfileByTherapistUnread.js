@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {  Link } from "react-router-dom";
+import PatientJournalEntryUnread from "./PatientJournalEntryUnread.js"
+// import {  Link } from "react-router-dom";
 import {  HiCake,
           HiHome,
           HiPhone,
@@ -15,22 +16,33 @@ function PatientProfileByTherapistUnread({tid,pid}) {
 
   const [patientProfile, setPatientProfile] = useState([]);
   const [upatientJournals, setUPatientJournals] = useState([]);
+  const [journalentryunread, setJournalEntryUnRead] = useState({})
+  const [totalhr,setTotalhr] = useState(0);
+  const [totalJE,setTotalJE] = useState(0);
+ 
+
+  const datos = {
+    mostrar: "",
+    je_id: 0,
+  }
 
   useEffect(() => {
     axios
       .get(`${API}/therapist/${tid}/patients/${pid}`)
       .then((response) => {
-        
         setPatientProfile(response.data);
+       
       })
       .catch((e) => {
         console.warn("catch", e);
       });
   }, [tid, pid]);
 
+ 
+
   useEffect(() => {
     axios
-      .get(`${API}/therapist/${tid}/patients/${pid}/journals/unread`)
+      .get(`${API}/therapist/${tid}/patients/${pid}/journals/`)
       .then((journals) => {
         
         setUPatientJournals(journals.data);
@@ -40,15 +52,35 @@ function PatientProfileByTherapistUnread({tid,pid}) {
       });
   }, [tid, pid]);
 
+   let hr = 0
+   let allJE = upatientJournals.length;
+   for (let i = 0; i < upatientJournals.length; i++) {
+     if (upatientJournals[i].analysis_score === 1) {
+          hr++
+     }
+   }
+ 
+  useEffect (()=> {
+    setTotalhr(hr)
+    setTotalJE(allJE)
+  },[hr,allJE])
+
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
+
+  const handdleClick = (jid) => {
+    datos.mostrar = "show";
+    datos.je_id = jid;
+    setJournalEntryUnRead(datos)
+  }
+
   return (
     <>
      
-      <div className="flex gap-5 m-5">
+      <div className="flex  justify-around gap-5 m-5">
         <div>
           <img
             src={patientProfile.profile_picture}
@@ -66,7 +98,21 @@ function PatientProfileByTherapistUnread({tid,pid}) {
           <div className="flex space-x-1 items-center"><p><HiPhone /> </p><p>{patientProfile.contact_number}</p></div>
           <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
         </div>
+        <div>
+          <h3 className="text-lg font-semibold py-2 mt-4">Total Journal Entries</h3>
+          <h3 className="text-bold text-center text-2xl py-2 text-dark-blue">{totalJE}</h3>
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold py-2 mt-4">Total High Risk Journal Entries</h3>
+          <h3 className="text-bold text-center text-2xl py-2 text-red-400 ">{totalhr}</h3>
+        </div>
+
         
+      </div>
+
+      <div>
+        {journalentryunread.mostrar === "show" ? (<PatientJournalEntryUnread  journalentryunread={journalentryunread} setJournalEntryUnRead={setJournalEntryUnRead}/>): null}
+       
       </div>
 
       <div className="m-6">
@@ -79,32 +125,22 @@ function PatientProfileByTherapistUnread({tid,pid}) {
             </tr>
           </thead>
           <tbody>
-            {upatientJournals.map((x) => {
+            {upatientJournals.filter((unrd) => unrd.read === false).map((x) => {
               return (
                 <React.Fragment key={x.id}>
                   <tr className="hover:bg-light-blue">
                     <td className="border border-dark-blue p-2">
                       {x.analysis_score === 1 ? (
-                        <Link 
-                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-red-500 underline"
-                        >
-                          High
-                        </Link>
+
+                        <button className="text-red-500 underline" onClick={() => handdleClick(x.id)} >High</button> 
+                       
                       ) : x.analysis_score === 2 ? (
-                        <Link
-                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-yellow-500 underline"
-                        >
-                          Medium
-                        </Link>
+                       
+                        <button className="text-yellow-500 underline" onClick={() => handdleClick(x.id)} >Medium</button> 
+                      
                       ) : (
-                        <Link
-                          to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                          className="text-green-500 underline"
-                        >
-                          Low
-                        </Link>
+
+                        <button className="text-green-500 underline" onClick={() => handdleClick(x.id)} >Low</button> 
                       )}
                     </td>
                     <td className="border border-dark-blue p-2">
