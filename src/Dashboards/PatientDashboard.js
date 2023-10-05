@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import PatientDashBoardNav from "../Components/PatientDashBoardNav";  
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { OpenAI} from 'langchain/llms/openai';
 // import AuthDetails from "../Components/AuthDetails";
 //import PatientJournalCard from "../Components/Patients/PatientJournalCard";
@@ -11,10 +11,10 @@ import { OpenAI} from 'langchain/llms/openai';
  const AI_APIKEY = process.env.REACT_APP_OPENAI_API_KEY;
   
 
-  export default function PatientDashboard() {
+  export default function PatientDashboard({setChangeFlag}) {
     const { id } = useParams();
      
-    const navegate = useNavigate()
+    // const navegate = useNavigate()
 
 
 
@@ -55,8 +55,8 @@ import { OpenAI} from 'langchain/llms/openai';
     
     
   const handleclick = () => {
-      
-     navegate(`/patient/${id}/dashboardProfile`)
+    setChangeFlag('dashboard')
+    //  navegate(`/patient/${id}/dashboardProfile`)
   }
     
     
@@ -78,7 +78,7 @@ import { OpenAI} from 'langchain/llms/openai';
 
     }
    if (entryText) {
-    const resp = await openai.call(`${entryText},  based on this entry can you give me a response based on the numbers 1, 2, and 3 (1 being the patient needs to seek immediate medical attention for their mental health state, 2 being the patient is in a concern mental health state and 3 being the patient has a stable mental health state), please use profesional medical terminology and evaluate the entry as a mental health counselor,avoid using phrases like 'it appears that the patient is in an overall okay mental health state' response with only one number and no more than 2 paragraph`)
+    const resp = await openai.call(`${entryText}, Based on this journal entry can you give me a response based on the numbers 1, 2, and 3 (1 being the author needs to seek immediate medical attention for their mental health state, 2 being the author is in an adequate mental health state and 3 being the author is in a  good and positive mental health state). Please evaluate the entry using professional medical terminology and from the point of view of a mental health professional. Avoid using broad and general statements (ex: It appears that the patient is in an overall okay mental health state')`)
        
        if ( resp.includes('1')) {
         journalEntry.analysis_score = 1;
@@ -93,7 +93,8 @@ import { OpenAI} from 'langchain/llms/openai';
     axios
         .post(`${API}/journal` , journalEntry)
         .then(() => {
-          navegate (`/patient/${id}/dashboardProfile`);
+          setChangeFlag('dashboard')
+          // navegate (`/patient/${id}/dashboardProfile`);
         },
         (error) => console.error(error)
         )
@@ -107,6 +108,7 @@ import { OpenAI} from 'langchain/llms/openai';
     else{
       alert('please enter a journal entry')
     }
+
   }
     
 
