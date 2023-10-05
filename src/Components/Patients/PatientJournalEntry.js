@@ -103,9 +103,7 @@ export default function PatientJournalEntry () {
                         </form>
 
                     </div>   
-                    {/* <div className="rounded overflow-hidden shadow-lg">
-                                <p className="mx-5">{journal.therapist_notes} </p>
-                            </div>  */}
+                  
                 </div>
             
         </div>

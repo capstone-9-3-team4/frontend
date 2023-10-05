@@ -63,7 +63,7 @@ export default function LogIn() {
       
       navigate(`/therapist/${userObj.t_id}/highrisk`);
   } else if (userObj.role === "P") {
-      console.log(userObj.p_id)
+   
       navigate(`/patient/${userObj.p_id}/dashboardProfile`);
   }
 

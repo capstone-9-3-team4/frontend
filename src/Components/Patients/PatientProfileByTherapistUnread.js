@@ -82,7 +82,7 @@ function PatientProfileByTherapistUnread({tid,pid}) {
   return (
     <>
      
-      <div className="flex gap-5 m-5">
+      <div className="flex  justify-around gap-5 m-5">
         <div>
           <img
             src={patientProfile.profile_picture}
@@ -101,11 +101,11 @@ function PatientProfileByTherapistUnread({tid,pid}) {
           <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
         </div>
         <div>
-          <h2>Total Journal Entries</h2>
+          <h3 className="text-lg font-semibold mt-4">Total Journal Entries</h3>
           <h3>{totalJE}</h3>
         </div>
         <div>
-          <h2>Total High Risk JE</h2>
+          <h3 className="text-lg font-semibold mt-4">Total High Risk JE</h3>
           <h3>{totalhr}</h3>
         </div>
 
