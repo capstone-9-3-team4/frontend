@@ -73,7 +73,7 @@ import { OpenAI} from 'langchain/llms/openai';
           journal_entry:entryText,
           therapist_notes:'',
           analysis_score:0,
-          ai_response: '',
+          ai_response: '',``
           read:false
 
     }
