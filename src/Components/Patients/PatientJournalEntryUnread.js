@@ -11,7 +11,7 @@ export default function PatientJournalEntry ({journalentryunread,setJournalEntry
   
     const [notes, setNotes] = useState("")
     const [journal, setJournal] = useState({});
-    // const navigate = useNavigate();
+    
 
     useEffect(() => {
       axios
@@ -52,7 +52,6 @@ export default function PatientJournalEntry ({journalentryunread,setJournalEntry
         .put(`${API}/journal/${journalentryunread.je_id}`, journal)
         .then(() => {
             setJournalEntryUnRead({})
-            //navigate(`/therapist/${tid}/patient/${pid}/unread`);
             window.location.reload(false)
         },
         (error) => console.error(error)
@@ -66,9 +65,6 @@ export default function PatientJournalEntry ({journalentryunread,setJournalEntry
     }
   
     return (
-
-       
-    //    <div className={journal.analysis_score === 1 ? ('border-red-500') : journal.analysis_score === 2 ? ('border-yellow-500') : ('border-green-500') }> 
          <div className="justify-center mx-6 h-96 p-1 overflow-y-auto scrollbar bg-gray-100 border-4 border-dark-blue rounded-3xl shadow-lg ">
             <div className=" flex flex-col">
                <div className="p-1 items-center">
@@ -116,7 +112,7 @@ export default function PatientJournalEntry ({journalentryunread,setJournalEntry
                 </div>
             
         </div>
-        // </div> 
+      
        
     )
 }
