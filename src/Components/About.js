@@ -1,5 +1,6 @@
-import { SiGithub, SiLinkedin } from "react-icons/si";
-import ProfilePic from "../images/profilepic.png"
+//import { SiGithub, SiLinkedin } from "react-icons/si";
+
+import ProfilePic from "../images/profilepic.png";
 import Footer from "./Footer";
 
 
@@ -22,8 +23,8 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
          </div>
         <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Elizabeth Bright</h1>
-          <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a>
+          {/* <a href=""><SiLinkedin /></a>
+          <a href=""><SiGithub /></a> */}
         </div>
         <div className="my-4">
           <div className=" space-x-1 items-center">
@@ -39,8 +40,8 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
         <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={ProfilePic} alt="Profile" /></div>
          <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Ryan Lundy</h1>
-          <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a>
+          {/* <a href=""><SiLinkedin /></a>
+          <a href=""><SiGithub /></a> */}
         </div>
         <div className="my-4">
           <div className="flex space-x- items-center">
@@ -59,8 +60,8 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
         </div>
         <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Florence Osei</h1>
-          <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a>
+          {/* <a href=""><SiLinkedin /></a>
+          <a href=""><SiGithub /></a> */}
         </div>
         <div className="my-4">
          
@@ -79,8 +80,8 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
         <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={ProfilePic} alt="Profile" /> </div>
         <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Christian Orlando</h1>
-          <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a>
+          {/* <a href=""><SiLinkedin /></a>
+          <a href=""><SiGithub /></a> */}
         </div>
         <div className="my-4">
           <div className=" space-x-1 items-center">
@@ -97,8 +98,8 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
         <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={ProfilePic} alt="Profile" /> </div>
         <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Wilton Camilo</h1>
-          <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a>
+          {/* <a href=""><SiLinkedin /></a>
+          <a href=""><SiGithub /></a> */}
         </div>
         <div className="my-4">
           <div className=" space-x-1 items-center">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PatientDashboard from "./PatientDashboard";
 //import AuthDetails from "../Components/AuthDetails";
 import {  HiCake,
@@ -15,7 +15,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function PatientDashBoard2() {
     const { id } = useParams();
-    const navegate = useNavigate()
+  
 
   const [patientProfile, setPatientProfile] = useState([]);
   const [therapistinfo,setTherapistInfo] = useState({});
@@ -144,7 +144,7 @@ function PatientDashBoard2() {
                                     </div>
                              </div>
                              </div>
-                             <div className="flex flex-col items-center bg-gray-100">
+                             <div className="flex flex-col items-center">
                                   <div className="flex flex-col text-lg font-bold"> Therapist </div> 
                                   <div className="flex items-center justify-center py-3">
                                       <b>{`${therapistinfo.first_name}  ${therapistinfo.last_name}`}</b>
@@ -180,7 +180,7 @@ function PatientDashBoard2() {
               </div> }
             { changeFlag ==="journal" &&
                  
-                 <div className="h-screen flex flex-col mt-5 mb-5">
+                 <div className="h-screen flex flex-col mt-5 mb-5 overflow-y-auto scrollbar">
                       <div className="flex flex-col rounded-2xl">
                           <div className="flex flex-row space-x-3">
                              <h4 className="font-bold px-4"> All Journal Entries</h4> 
@@ -208,7 +208,7 @@ function PatientDashBoard2() {
                
 
                   {changeFlag ==="journalentry" &&
-                    <PatientDashboard />
+                    <PatientDashboard setChangeFlag={setChangeFlag}/>
                   }
                 </div> 
           </div>
