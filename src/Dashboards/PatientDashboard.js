@@ -111,27 +111,27 @@ import { OpenAI} from 'langchain/llms/openai';
     
 
   return (
-    <div className="justify-center mx-6 h-96 p-10 overflow-hidden border-4 rounded-3xl shadow-lg ">
+    <div className="h-screen justify-center mx-6 p-10 overflow-hidden">
       <PatientDashBoardNav />
       <div className="text-center mt-5">
-      <form onSubmit={handleSubmit}>
-        <textarea
-          className="w-full px-5 bg-light-blue rounded-2xl border-2 border-dark-blue focus:outline-none focus:bg-white" 
-          rows="4"
-          cols="50"
-          placeholder="Write your journal entry here..."
-          value={entryText}
-          onChange={handleTextChange}
-        ></textarea>
-        <br />
-         <div className=" flex flex-row justify-around">
-            
-             <button className="px-4 py-1 text-white bg-dark-blue hover:bg-dark-purple rounded " onClick={handleclick} >Cancel</button>
-             <button className="px-4 py-1 text-white bg-dark-blue hover:bg-dark-purple rounded " type="submit" >Submit Journal Entry</button>
-            
-        
-          </div>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <textarea
+            className="w-full px-5 bg-light-blue rounded-2xl border-2 border-dark-blue focus:outline-none focus:bg-white" 
+            rows="4"
+            cols="50"
+            placeholder="Write your journal entry here..."
+            value={entryText}
+            onChange={handleTextChange}
+          ></textarea>
+          <br />
+          <div className=" flex flex-row justify-around">
+              
+              <button className="px-4 py-1 text-white bg-dark-blue hover:bg-dark-purple rounded " onClick={handleclick} >Cancel</button>
+              <button className="px-4 py-1 text-white bg-dark-blue hover:bg-dark-purple rounded " type="submit" >Submit Journal Entry</button>
+              
+          
+            </div>
+        </form>
       </div>
     </div>
   );
