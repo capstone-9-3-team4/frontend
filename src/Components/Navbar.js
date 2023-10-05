@@ -34,7 +34,7 @@ export default function Navbar() {
 
 
   return (
-    <nav className="bg-white p-2">
+    <nav className="z-50 bg-white p-2 top-0 sticky ">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-dark-blue font-bold text-xl"><img src={Logo} alt="" width="100" /></div>
         <ul className="flex space-x-4 text-dark-blue">
