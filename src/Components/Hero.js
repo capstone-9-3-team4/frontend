@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
     return (
-        <section className="relative bg-[url(https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80)] bg-cover bg-center bg-no-repeat">
+        <section className="min-h-screen relative bg-[url(https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80)] bg-cover bg-center bg-no-repeat">
             <div className="text-white py-20">
                 <div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
                     
