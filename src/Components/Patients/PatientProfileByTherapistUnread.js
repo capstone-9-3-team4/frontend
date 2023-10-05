@@ -38,9 +38,7 @@ function PatientProfileByTherapistUnread({tid,pid}) {
       });
   }, [tid, pid]);
 
-  // useEffect(()=> {
-  //    window.location.reload(false)
-  // },[])
+ 
 
   useEffect(() => {
     axios
@@ -101,12 +99,12 @@ function PatientProfileByTherapistUnread({tid,pid}) {
           <div className="flex space-x-1 items-center"><p><HiHome /> </p><p>{patientProfile.address}, {patientProfile.city}, {patientProfile.state} {patientProfile.zip_code}</p></div>
         </div>
         <div>
-          <h3 className="text-lg font-semibold mt-4">Total Journal Entries</h3>
-          <h3>{totalJE}</h3>
+          <h3 className="text-lg font-semibold py-2 mt-4">Total Journal Entries</h3>
+          <h3 className="text-bold text-center text-2xl py-2 text-dark-blue">{totalJE}</h3>
         </div>
         <div>
-          <h3 className="text-lg font-semibold mt-4">Total High Risk JE</h3>
-          <h3>{totalhr}</h3>
+          <h3 className="text-lg font-semibold py-2 mt-4">Total High Risk Journal Entries</h3>
+          <h3 className="text-bold text-center text-2xl py-2 text-red-400 ">{totalhr}</h3>
         </div>
 
         
@@ -133,26 +131,16 @@ function PatientProfileByTherapistUnread({tid,pid}) {
                   <tr className="hover:bg-light-blue">
                     <td className="border border-dark-blue p-2">
                       {x.analysis_score === 1 ? (
-                        // <Link 
-                        //   to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                        //   className="text-red-500 underline"
-                        // >
+
                         <button className="text-red-500 underline" onClick={() => handdleClick(x.id)} >High</button> 
-                        // </Link>
+                       
                       ) : x.analysis_score === 2 ? (
-                        // <Link
-                        //   to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                        //   className="text-yellow-500 underline"
-                        // >
+                       
                         <button className="text-yellow-500 underline" onClick={() => handdleClick(x.id)} >Medium</button> 
-                        // </Link>
+                      
                       ) : (
-                        // <Link
-                        //   to={`/therapist/${tid}/patient/${pid}/journals/unread/${x.id}`}
-                        //   className="text-green-500 underline"
-                        // >
+
                         <button className="text-green-500 underline" onClick={() => handdleClick(x.id)} >Low</button> 
-                        // </Link>
                       )}
                     </td>
                     <td className="border border-dark-blue p-2">
