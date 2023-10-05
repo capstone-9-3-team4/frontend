@@ -42,7 +42,7 @@ export default function Navbar() {
             <Link to={"/"} className="hover:text-dark-purple">Home</Link>
           </li>
           <li>
-            <Link to={"/"} className="hover:text-dark-purple">About</Link>
+            <Link to={"/about"} className="hover:text-dark-purple">About</Link>
           </li>
           
           {authUser ? 
