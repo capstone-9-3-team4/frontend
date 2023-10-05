@@ -21,6 +21,7 @@ import PatientJournalEntry from "./Components/Patients/PatientJournalEntry.js";
 import PatientInviteForm from "./Components/Patients/PatientInviteForm.js";
 import LogIn from "./Components/LogIn.js";
 import TherapistProfile from "./Components/TherapistProfile.js";
+import About from "./Components/About.js";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/therapist/:tid/patients" element={<TherapistDashboardALL />} />
