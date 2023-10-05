@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 export default function MoreInfoCards() {
     return (
    
@@ -47,7 +47,7 @@ export default function MoreInfoCards() {
           
           <p className="box-border h-32">We are a team of Full-Stack Software Engineer with a focus in Web Development utilizing PERN Stack.</p>
         </div>
-        <button className="px-4 py-1 w-full text-white font-light tracking-wider bg-dark-blue hover:bg-dark-purple rounded">Learn More</button>
+        <Link to={"/about"}><button className="px-4 py-1 w-full text-white font-light tracking-wider bg-dark-blue hover:bg-dark-purple rounded">Learn More</button></Link>
       </div>
     </div>
   </div>
