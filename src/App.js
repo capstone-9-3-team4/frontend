@@ -20,18 +20,24 @@ import PatientEntriesReadGrid from "./Components/PatientEntriesReadGrid.js"
 import PatientJournalEntry from "./Components/Patients/PatientJournalEntry.js";
 import PatientInviteForm from "./Components/Patients/PatientInviteForm.js";
 import LogIn from "./Components/LogIn.js";
+import TherapistProfile from "./Components/TherapistProfile.js";
+import About from "./Components/About.js";
 
 function App() {
+
+
   return (
     <div>
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/therapist/:tid/patients" element={<TherapistDashboardALL />} />
           <Route path="/invite" element={<PatientInviteForm />} />
+          <Route path="/TherapistProfile" element={<TherapistProfile />} />
           <Route path="/therapist/:tid/highrisk" element={<TherapistDashboardHR />} />
           <Route path="/therapist/:tid/mediumrisk" element={<TherapistDashboardMR />} />
           <Route path="/therapist/:tid/lowrisk" element={<TherapistDashboardLR />} />

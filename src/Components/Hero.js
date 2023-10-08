@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 
 export default function Hero() {
     return (
-        <section className="relative bg-[url(https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80)] bg-cover bg-center bg-no-repeat">
+        <section className="min-h-screen relative bg-[url(https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80)] bg-cover bg-center bg-no-repeat">
             <div className="text-white py-20">
                 <div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
                     
@@ -10,9 +12,9 @@ export default function Hero() {
                         {/* <h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">Space : The Timeless Infinity
                         </h2> */}
                         <p className="text-sm md:text-base text-gray-50 mb-4">Therapist Connect utilizes the integration of journaling and AI-driven analysis that can empower patients to express themselves more comprehensively and provide therapists with valuable insights to guide their interventions.</p>
-                        <a href="#"
-                            className="px-4 py-1 text-dark-blue font-light tracking-wider bg-white hover:bg-dark-purple rounded">
-                            Learn More</a>
+                        <Link to={`/`} className="px-4 py-1 text-dark-blue font-light tracking-wider bg-white hover:bg-dark-purple rounded">
+                            
+                            Learn More</Link>
                     </div>
                 </div>
             </div>

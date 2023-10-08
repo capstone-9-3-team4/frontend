@@ -14,6 +14,7 @@ export default function PatientJournalEntryRead ({journalentryread,setJournalEnt
    
 
     useEffect(() => {
+      
       axios
         .get(`${API}/journal/${journalentryread.je_id}`)
         .then((response) => {
@@ -38,12 +39,12 @@ export default function PatientJournalEntryRead ({journalentryread,setJournalEnt
 
        
        
-         <div className="justify-center mx-6 h-64 p-1 overflow-y-auto scrollbar bg-gray-100 border-2 border-dark-blue rounded-2xl shadow-lg ">
+         <div className="justify-center mx-6 h-96 p-1 overflow-y-auto scrollbar bg-gray-100 border-3 border-dark-blue border-4 border-dark-blue rounded-3xl shadow-lg ">
             <div className="grid grid-cols-1 gap-3 tems-center ">
                  <div className=" flex flex-col">
                    <button onClick={()=>setJournalEntryRead({})} className="flex justify-start h-6 px-1 py-1 text-2xl text-dark-blue hover:text-3xl hover:text-red-500"><IoCloseSharp/></button>
                   
-                   <h2 className="text-center font-bold text-lg"> Patient Journal Entry, Analysis & Therapist Note <h3>{formatDate(journal.entry_date)}</h3> </h2>
+                   <div className="text-center font-bold text-lg"> Patient Journal Entry, Analysis & Therapist Note <h3>{formatDate(journal.entry_date)}</h3> </div>
                  </div>
                 <div className="grid grid-cols-2 gap-5 mt-3">
                     <div className="justify-center mx-6 p-2 hover:bg-light-blue  h-32 overflow-y-auto scrollbar text-center border-2 border-dark-blue rounded-2xl ">
