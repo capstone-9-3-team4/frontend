@@ -65,7 +65,7 @@ export default function PatientJournalEntry ({journalentryunread,setJournalEntry
     }
   
     return (
-         <div className="justify-center mx-6 h-96 p-1 overflow-y-auto scrollbar bg-gray-100 border-4 border-dark-blue rounded-3xl shadow-lg ">
+         <div className="p-5 justify-center mx-6 h-120 overflow-y-auto scrollbar bg-gray-100 border-4 border-dark-blue rounded-3xl shadow-lg ">
             <div className=" flex flex-col">
                <div className="p-1 items-center">
                <button onClick={()=>setJournalEntryUnRead({})} className="flex justify-start h-6 px-2 py-3 text-2xl text-dark-blue hover:text-3xl hover:text-red-500"><IoCloseSharp/></button>

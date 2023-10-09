@@ -78,7 +78,7 @@ import { OpenAI} from 'langchain/llms/openai';
 
     }
    if (entryText) {
-    const resp = await openai.call(`${entryText}, Based on this journal entry can you give me a response based on the numbers 1, 2, and 3 (1 being the author is in a high concern for their mental health state, 2 being the author is in an adequate mental health state and 3 being the author is in a  good and positive mental health state). Please evaluate the entry as a psychiatrist using professional medical terminology. Avoid using broad and general statements (ex: It appears that the patient is in an overall okay mental health state)`)
+    const resp = await openai.call(`${entryText}, Based on this journal entry can you give me a response based on the numbers 1, 2, and 3 (1 being the author is in a high level concern for their mental health state, 2 being the author is in a moderate level concern for their mental health state and 3 being the author is in a good and positive mental health state). Please evaluate the entry as a psychiatrist using professional medical terminology. Avoid using broad and general statements (ex: It appears that the patient is in an overall okay mental health state)`)
        
        if ( resp.includes('1')) {
         journalEntry.analysis_score = 1;
