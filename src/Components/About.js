@@ -1,6 +1,11 @@
-//import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 
 import ProfilePic from "../images/profilepic.png";
+import Wilton from "../images/Wilton.png"
+import Chris from "../images/Chris.jpeg"
+import Florance from "../images/Florance.jpeg"
+import Ryan from "../images/Ryan.jpeg"
+import Elizabeth from "../images/Elizabeth.jpeg"
 import Footer from "./Footer";
 
 
@@ -19,12 +24,12 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
       <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
         
         <div className="relative">
-          <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={ProfilePic} alt="Profile" />
+          <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={Elizabeth} alt="Elizabeth"/>
          </div>
         <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Elizabeth Bright</h1>
-          {/* <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a> */}
+          <a href="https://www.linkedin.com/in/elizabethbright721/"><SiLinkedin /></a>
+          <a href="https://github.com/elizabethbright721"><SiGithub /></a>
         </div>
         <div className="my-4">
           <div className=" space-x-1 items-center">
@@ -37,11 +42,11 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
       </div>
       <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
         <div className="relative">
-        <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={ProfilePic} alt="Profile" /></div>
+        <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={Ryan} alt="Ryan" /></div>
          <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Ryan Lundy</h1>
-          {/* <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a> */}
+          <a href="https://www.linkedin.com/in/1ryanlundy/"><SiLinkedin /></a>
+          <a href="https://github.com/1ryanlundy"><SiGithub /></a>
         </div>
         <div className="my-4">
           <div className="flex space-x- items-center">
@@ -55,13 +60,13 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
       <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
       
         <div className="relative">
-        <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={ProfilePic} alt="Profile" />
+        <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={Florance} alt="Florance" />
        
         </div>
         <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Florence Osei</h1>
-          {/* <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a> */}
+          <a href="https://www.linkedin.com/in/florence-ernestina-osei/"><SiLinkedin /></a>
+          <a href="https://github.com/pursuit-florence"><SiGithub /></a>
         </div>
         <div className="my-4">
          
@@ -77,15 +82,15 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
       <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
         
         <div className="relative">
-        <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={ProfilePic} alt="Profile" /> </div>
+        <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={Chris} alt="Chris" /> </div>
         <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Christian Orlando</h1>
-          {/* <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a> */}
+          <a href="https://www.linkedin.com/in/christian-orlando-it/"><SiLinkedin /></a>
+          <a href="https://github.com/orlandochristian"><SiGithub /></a>
         </div>
         <div className="my-4">
           <div className=" space-x-1 items-center">
-            <p className="">Bio</p>
+            <p className="">"Hello, I'm Orlando Christian, a tech professional from Buenos Aires, Argentina. I began my career at the Board of Education, where I pioneered payroll systems. But I soon found a new purpose - creating opportunities for my family. This drove me to explore front-end development. Now, I'm passionate about designing user-friendly interfaces, committed to using technology to make a positive impact. Let's connect and innovate together."</p>
             
   
           </div>
@@ -95,15 +100,15 @@ The Project-based curriculum provides hands-on experience with JavaScript, HTML,
       <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
         
         <div className="relative">
-        <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={ProfilePic} alt="Profile" /> </div>
+        <img className="w-full rounded-3xl h-56 shadow-md shadow-dark-blue" src={Wilton} alt="Wilton" /> </div>
         <div className="flex space-x-5 items-baseline"> 
           <h1 className="mt-4 text-dark-blue text-2xl font-bold cursor-pointer">Wilton Camilo</h1>
-          {/* <a href=""><SiLinkedin /></a>
-          <a href=""><SiGithub /></a> */}
+          <a href="https://www.linkedin.com/in/wilton-l-camilo-339b78130/"><SiLinkedin /></a>
+          <a href="https://github.com/WiltonCam"><SiGithub /></a>
         </div>
         <div className="my-4">
           <div className=" space-x-1 items-center">
-            <p className="">Bio</p>
+            <p className="">Hello, I'm Wilton, and I'm on a mission to infuse the tech world with the vibrant spirit of the Dominican Republic. As a first-generation Dominican, I bring the energy, rhythm, and spice of our culture to the forefront. With a diverse background, including experience in mental health and sales at tech-friendly giants like Best Buy, I'm here to make a lasting impact.</p>
             
   
           </div>
