@@ -39,7 +39,7 @@ export default function PatientJournalEntryRead ({journalentryread,setJournalEnt
 
        
        
-         <div className="justify-center mx-6 h-96 p-1 overflow-y-auto scrollbar bg-gray-100 border-3 border-dark-blue border-4 border-dark-blue rounded-3xl shadow-lg ">
+         <div className="p-5 justify-center mx-6 h-120 overflow-y-auto scrollbar bg-gray-100 border-4 border-dark-blue rounded-3xl shadow-lg ">
             <div className="grid grid-cols-1 gap-3 tems-center ">
                  <div className=" flex flex-col">
                    <button onClick={()=>setJournalEntryRead({})} className="flex justify-start h-6 px-1 py-1 text-2xl text-dark-blue hover:text-3xl hover:text-red-500"><IoCloseSharp/></button>
@@ -47,14 +47,14 @@ export default function PatientJournalEntryRead ({journalentryread,setJournalEnt
                    <div className="text-center font-bold text-lg"> Patient Journal Entry, Analysis & Therapist Note <h3>{formatDate(journal.entry_date)}</h3> </div>
                  </div>
                 <div className="grid grid-cols-2 gap-5 mt-3">
-                    <div className="justify-center mx-6 p-2 hover:bg-light-blue  h-32 overflow-y-auto scrollbar text-center border-2 border-dark-blue rounded-2xl ">
+                    <div className="justify-center mx-6 p-2 hover:bg-light-blue  h-48 overflow-y-auto scrollbar text-center border-2 border-dark-blue rounded-xl ">
                             <h2 className="font-bold text-lg text-center">Patient Journal Entry</h2>
                             <div >
                                 <p className="mx-5">{journal.journal_entry} </p>
                             </div> 
                            
                     </div>
-                    <div className="justify-center mx-6 p-2 hover:bg-light-blue  h-32 overflow-y-auto scrollbar text-center border-2 border-dark-blue rounded-2xl ">
+                    <div className="justify-center mx-6 p-2 hover:bg-light-blue  h-48 overflow-y-auto scrollbar text-center border-2 border-dark-blue rounded-xl ">
                         <h2 className="font-bold  text-lg text-center">AI Analysis & Score - {journal.analysis_score}</h2>
                         <div>
                             <p className="mx-5">{journal.ai_response} </p>
@@ -62,7 +62,7 @@ export default function PatientJournalEntryRead ({journalentryread,setJournalEnt
                     </div>
                 </div>
 
-                <div className="justify-center hover:bg-light-blue h-24 overflow-y-auto scrollbar mx-6 p-1 text-center border-2 border-dark-blue rounded-2xl ">
+                <div className="justify-center hover:bg-light-blue h-24 overflow-y-auto scrollbar mx-6 p-1 text-center border-2 border-dark-blue rounded-xl ">
                         <h2 className="font-bold text-lg text-center">Therapist Note</h2>
                         <div>
                             <p className="mx-5">{journal.therapist_notes} </p>
