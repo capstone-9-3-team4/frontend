@@ -72,12 +72,12 @@ export default function TherapistDashboardNav() {
             </Link>
           </li>
           <li>
-            <Link to="/invite">
+            {/* <Link to="/invite"> */}
               <div className={`flex flex-col justify-center text-center ${activeRoute === 'invite' ? 'text-blue-500' : 'hover:opacity-40'}`}>
                 <i className="text-3xl"><SlUserFollow /></i>
                 <p>Add Patient</p>
               </div>
-            </Link>
+            {/* </Link> */}
           </li>
           <li>
             <Link to={`/therapist/${tid}/patients`}>
