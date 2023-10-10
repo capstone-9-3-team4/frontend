@@ -78,7 +78,7 @@ export default function PatientDashboard({ setChangeFlag, setAllJournal }) {
 
     }
     if (entryText) {
-      const resp = await openai.call(`${entryText}, Analyze the following journal entry from a psychiatric perspective and provide a numerical rating on a scale of 1 to 3, where 1 indicates a high level of concern for the author's mental health state, 2 indicates a moderate level of concern, and 3 indicates a good and positive mental health state. Please use professional medical terminology to support your evaluation.`)
+      const resp = await openai.call(`${entryText}, Evaluate the subsequent journal entry through a psychiatric lens, assigning a numerical rating on a scale of 1 to 3. A rating of 1 signifies a notable level of apprehension regarding the author's mental health, 2 denotes a moderate level of concern, and 3 suggests a favorable and robust mental health state. Employ precise medical terminology to underpin your assessment and only provide the numerical rating once in the response. `)
 
       if (resp.includes('1')) {
         journalEntry.analysis_score = 1;

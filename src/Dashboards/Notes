@@ -1,0 +1,8 @@
+Notes
+
+
+PatientCard
+
+1. Find the component
+2. when the component mounts (when its useEffect runs), just fetch the relevant data from the db at that time
+3. This means there's no need for a refresh
