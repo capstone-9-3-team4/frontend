@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <nav className="z-50 bg-white p-2 top-0 sticky ">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-dark-blue font-bold text-xl"><img src={Logo} alt="" width="100" /></div>
+        <div className="text-dark-blue font-bold text-xl"><Link to={"/"} className="hover:text-dark-purple"><img src={Logo} alt="" width="100" /></Link></div>
         <ul className="flex space-x-4 text-dark-blue">
           <li>
             <Link to={"/"} className="hover:text-dark-purple">Home</Link>

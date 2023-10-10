@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 export default function SignUpForm() {
     return (
-             
+      <div>       
       <div className="flex items-center justify-center m-8 p-10 container mx-auto h-full rounded-md min-h-screen bg-dark-blue">
-        <div className="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
+        <div className="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-xl rounded md:w-1/3 lg:w-1/3 sm:w-1/3">
             <h3 className="text-dark-purple uppercase font-bold text-3xl text-center">Sign Up</h3>
             <form action="">
                 <div className="mt-4">
@@ -42,6 +43,9 @@ export default function SignUpForm() {
                 </div>
             </form>
         </div>
+       
+      </div> 
+      <Footer />
       </div>
     );
   }
