@@ -11,7 +11,7 @@ const API = process.env.REACT_APP_API_URL;
 const AI_APIKEY = process.env.REACT_APP_OPENAI_API_KEY;
 
 
-export default function PatientDashboard({ setChangeFlag }) {
+export default function PatientDashboard({ setChangeFlag, setAllJournal }) {
   const { id } = useParams();
 
   // const navegate = useNavigate()
@@ -94,6 +94,10 @@ export default function PatientDashboard({ setChangeFlag }) {
         .post(`${API}/journal`, journalEntry)
         .then(() => {
           setChangeFlag('dashboard')
+          // update the journalEntries history
+          setAllJournal((prevState) => {
+            return [journalEntry, ...prevState]
+          })
           // navegate (`/patient/${id}/dashboardProfile`);
         },
           (error) => console.error(error)

@@ -7,19 +7,19 @@ import PatientJournalCard from "./PatientJournalCard"
 const API = process.env.REACT_APP_API_URL;
 
 
-export default function PatientJournalCards () {
+export default function PatientJournalCards() {
 
     const { tid } = useParams();
     const [patientAtRisk, setPatientAtRisk] = useState([]);
-  
-   
+
+
     useEffect(() => {
         axios
             .get(`${API}/therapist/${tid}/dashboard/highrisk`)
             .then((response) => {
 
                 setPatientAtRisk(response.data);
-              
+
             })
             .catch((e) => {
 
@@ -32,17 +32,17 @@ export default function PatientJournalCards () {
 
     return (
         <div className="font-sans">
-            <div className="m-8 p-10 container mx-auto h-full  border-8 border-red-500 bg-box-background rounded-2xl black justify-left items-center">
+            <div className="m-8 p-10 container mx-auto h-auto  border-8 border-red-500 bg-box-background rounded-2xl black justify-left items-center">
                 <h1 className="font-bold text-3xl text-dark-purple ">Patients with High Risk Entries </h1>
                 <p className="italic">Click on card to view Patient's Journal Entries.</p>
                 <div className="grid gap-6 pt-6 lg:grid-cols-5 xl:gap-x-12">
-                    
-                   {patientAtRisk.map((patient) => {
-                   
-                       return <PatientJournalCard key={patient.p_id} patient={patient} />;
+
+                    {patientAtRisk.map((patient) => {
+
+                        return <PatientJournalCard key={patient.p_id} patient={patient} />;
                     })}
-                    
-            
+
+
                 </div>
             </div>
         </div>
