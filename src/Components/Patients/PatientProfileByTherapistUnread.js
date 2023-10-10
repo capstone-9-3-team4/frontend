@@ -47,7 +47,11 @@ function PatientProfileByTherapistUnread({ tid, pid }) {
       .get(`${API}/therapist/${tid}/patients/${pid}/journals/`)
       .then((journals) => {
 
-        setUPatientJournals(journals.data);
+        console.log('loading patient data', journals)
+        const sortedJournals = journals.data?.sort(function (a, b) {
+          return b.id - a.id
+        })
+        setUPatientJournals(sortedJournals);
       })
       .catch((e) => {
         console.warn("catch", e);
