@@ -38,7 +38,7 @@ export default function LogIn() {
           })
           .catch((error) => {
              // console.log(error);
-             setLoginmsg('pls check your email and pswd')
+             setLoginmsg('Please check your credentials.')
               
           })
   };
@@ -71,13 +71,11 @@ export default function LogIn() {
 
 
     return (
-    
-        <div className="font-sans max-h-screen">
-        <div className="container mx-auto flex flex-1 black justify-center items-center">
-            <div className="w-full max-w-lg">
-              <div className="leading-loose">
-                <form onSubmit={login2} className="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl">
-                    <p className="text-center text-dark-blue text-lg font-bold">LOGIN</p>
+      <div>
+        <div className="flex justify-center items-center m-8 p-10 container mx-auto h-full rounded-md min-h-screen bg-dark-blue">
+        <div className="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-xl rounded md:w-1/3 lg:w-1/3 sm:w-1/3">
+                <form onSubmit={login2} className="justify-center items-center max-w-sm m-4 p-10">
+                <h3 className="text-dark-purple uppercase font-bold text-3xl text-center">LOGIN</h3>
                       <div className="">
                         <label className="block text-sm text-white">E-mail</label>
                         <input type="email" 
@@ -100,13 +98,10 @@ export default function LogIn() {
                         {/* <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-dark-blue hover:text-blue"
                           href="#">Forgot Password?</a> */}
                       </div> 
-                      
-                </form>
+                </form>  
               </div>
-            </div>
-          </div>
+              </div>
           <Footer />
         </div>
-       
     );
   }
